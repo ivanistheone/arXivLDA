@@ -1,0 +1,76 @@
+<!--
+ (C) Copyright 2005, Gregor Heinrich (gregor :: arbylon : net) (This file is
+part of the lda-j (org.knowceans.lda.*) experimental software package.)
+
+lda-j is free software; you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+lda-j is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+Place, Suite 330, Boston, MA 02111-1307 USA
+-->
+
+<project name="lda-j" default="all">
+
+	<target name="all" depends="source-distribution,jar,bin-distribution">
+	</target>
+
+	<target name="jar">
+		<jar jarfile="./lda-j.jar" basedir="./bin" excludes="**/*.java" />
+	</target>
+
+	<target name="init">
+		<tstamp>
+			<format property="DSTAMP" pattern="yyyyMMdd" />
+			<format property="TSTAMP" pattern="HHmmss" />
+		</tstamp>
+	</target>
+
+	<target name="clean">
+		<delete file="lda-j.jar">
+		</delete>
+	</target>
+
+	<target name="bin-distribution" depends="init">
+		<zip destfile="lda-j-${DSTAMP}-${TSTAMP}.zip">
+			<fileset dir=".">
+				<include name="lda-j.jar" />
+				<include name="readme.txt" />
+				<include name="license.txt" />
+				<include name="settings.txt" />
+				<include name="mtcokus.dll" />
+			</fileset>
+			<fileset dir="." includes="berry/berry.*" />
+			<fileset dir="." includes="berry/vocab.txt" />
+			<fileset dir="." includes="berry.inf/berry_q.dat" />
+		</zip>
+
+	</target>
+
+	<target name="source-distribution" depends="init">
+		<zip destfile="lda-j-src-${DSTAMP}-${TSTAMP}.zip">
+			<fileset dir=".">
+				<include name="src/**/*.java" />
+				<include name="berry/berry.*" />
+				<include name="berry/vocab.*" />
+				<include name="berry.inf/berry_q.dat" />
+				<include name="native/*" />
+				<include name="*.launch" />
+				<include name=".classpath" />
+				<include name=".project" />
+				<include name="readme.txt" />
+				<include name="license.txt" />
+				<include name="settings.txt" />
+				<include name="mtcokus.dll" />
+				<include name="build.xml" />
+			</fileset>
+		</zip>
+	</target>
+
+</project>

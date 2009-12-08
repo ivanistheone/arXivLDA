@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: deltaLDA
+Version: 0.1.1
+Summary: Delta LDA model
+Home-page: http://pages.cs.wisc.edu/~andrzeje/research/df_lda.html
+Author: David Andrzejewski
+Author-email: andrzeje@cs.wisc.edu
+License: GNU General Public License (Version 3 or later)
+Description: UNKNOWN
+Platform: UNKNOWN

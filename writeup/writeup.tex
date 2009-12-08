@@ -1,0 +1,202 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.2in]{geometry}
+%\usepackage{supertabular}
+%\usepackage{setspace}
+%\doublespacing
+%\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newcommand{\company}[1]{\verb|#1|}
+\newcommand{\software}[1]{\verb|#1|}
+\newcommand{\project}[1]{\texttt{#1}}
+\newcommand{\comment}[1]{ [ \textit{#1} ] }
+
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\WW}{\mathcal{W}}
+\newcommand{\TT}{\mathcal{T}}
+
+\author{Ivan Savov}
+\title{ {\Huge Latent Dirichlet Allocation for \\ scientific topic extraction } }
+
+\begin{document}
+\maketitle
+
+\abstract{
+    We learn a topic model from a large collection of scientific articles using Latent Dirichlet Allocation.
+    The data set is the entire pdf contents of the Cornell Physics pre-print archive arXiv.org for the \texttt{quant-ph} category.
+    We represent each document as an array of word counts from a fixed dictionary of size $W=?$,
+    which we determined by 
+
+    We display the discovered topics and incorporate them into a rudimentary recommendation system.
+}
+
+
+{\bf keywords: } LDA, topic model, collapsed variational bayes, domain knowledge, 
+
+
+
+\section{Introduction}
+
+	When I first learned about Latent Dirichlet Allocation I was totally amazed by the seemingly magical ability
+	of this algorithm to automatically discern the topics underlying a collection of documents.
+	Since then I have been thinking about how I can apply this method to  
+
+
+\section{The model}
+
+    LDA 
+
+\section{The algorithm}
+
+    First we being by definiting some quantities
+    
+    We have the document set $\DD = \{ d_1, d_2, \ldots, d_D \}$, where each document consists of 
+    a word count vector for the words taken from a fixed vocabulary $\WW$ of size $W$.
+    
+    Our aim is to produce a set of topics $\TT$ where each topic is a probability distribution over words $\WW$.
+    
+    
+    \begin{description}
+	\item[$\gamma_{wjk}$:]	$=Pr( z=k | x=w,d=j)$, the probability that word $w$ in document $j$ 
+						is assigned to the topic k.
+	\item[$N_{wj}$:]	\# of times $w$ appears in doc $j$. 
+	\item[$N_{wk}$:]  $=\displaystyle\sum_{j\in \DD} N_{wj}\gamma_{wjk} = $ \# of times $w$ appears in topic $k$.
+	\item[$N_{kj}$:]  $=\displaystyle\sum_{w\in \WW} N_{wj}\gamma_{wjk} = $ \# of times topic $k$ appears in doc $j$.
+	\item[$N_{k}$:]  $=\displaystyle\sum_{w\in \WW} N_{wk}=  \displaystyle\sum_{w\in \WW}\sum_{j\in \DD} N_{wj}\gamma_{wjk} $ \# words assigned to  topic $k$.
+	\item[$N_{j}$: ]  $=\displaystyle\sum_{k \in \TT} N_{kj} =  \displaystyle\sum_{k \in \TT}\sum_{w\in \WW}N_{wj}\gamma_{wjk} $ \# words in doc $j$.
+    \end{description}
+
+
+    To achieve this we will have to learn...
+
+
+\section{The data set}
+
+	The good people who run the arXiv.org were kind enough to send me the entire collection of papers
+	in the \texttt{quant-ph} repository. The papers contain nearly all the research in the physical sciences
+	that is not particle physics.
+	 
+	\begin{verbatim}
+	ivan@flicker:/scratch/arxiv$ du -sh *
+	7.1G    pdf
+	2.1G    tex
+	ivan@flicker:/scratch/arxiv$ find pdf/ -type f | wc
+	31739   31739  730019
+	ivan@flicker:/scratch/arxiv$ find tex/ -type f | wc
+	21061   21061  470945
+	\end{verbatim}
+	
+	The \texttt{pdf/} directory contains the pdf versions of the papers and for some of these papers.
+	For about $2/3$ of these we also have the latex source code in the \texttt{tex/} directory.
+	
+	Some more information about the dataset:
+	\begin{itemize}
+		\item Total number of documents: 31739
+		\item Earliest date: 22 Dec 1994  (pdf/9412/9412002v1.pdf)
+		\item Most recent:  30 Mar 2007 (pdf/0703/0703278v1.pdf)
+	\end{itemize}
+	
+	
+	\subsection{Intended pre-processing}
+	
+		I plan to use the command \texttt{pdftotext} to convert the pdf documents to text files and
+		then use the standard bag-of-words paradigm for each document.
+		
+		I will do a first pass on the documents and remove stopwords.		
+		Given how large of a dataset is available I will try to run my algorithm without stemming in order
+		to capture as much of the granularity of the data.
+		If this proves to be ineffective then I will use stemming.
+		  
+
+	
+\section{Project proposal}
+
+	I will read the original 2003 paper by Blei, Ng and Jordan \cite{Blei2003} and also perform a general literature
+	review on topic models.
+	In particular, I want to verify the results of the ICML09 paper \cite{Teh2009} which state that all the different 
+	models of training
+	LDA are equivalent and only differ by the setting of the hyper-parameters.
+	
+	I will try to implement the Collapsed Variational Bayes technique of \cite{Teh2007}.
+	
+	The results I would like to obtain is some meaningful cluster structure over the scientific topics.
+	
+	
+\section{Next steps}
+	
+	I will need to move the data to powerful workstation where I can do the pre-processing of the
+	documents and perform the word counts.
+	
+	Then, I must look into the algorithm which I will use for training.
+	
+
+	
+\section{Questions}
+
+	
+	
+	
+\section{Other ideas}
+
+	\subsection{Regular expressions}
+	
+		This could be a study of what you can do with different features.
+		We can have as higher level features counts from regular expression matches.
+		These features can themselves be refined over generations or by cross validation.
+		
+		Come to think of it you can do all kinds of things with this.
+		Regular expressions of the form "quantum (mechanics|physics)" for compound words 
+		that are synonymous. 
+		
+		Algorithm: Self-refining regular expression features
+		\begin{enumerate}
+			\item	Start with word counts for a fixed list of words of size $|W|$ and do regular LDA.
+			\item	For each of the latent topics build all "two word" combinations.
+			\item	Rerun LDA on the expanded feature space of size $|W|^2 + |W|$.
+			\item	Find the important second order occurrences and discard all other features.
+			\item	Try to compress multiple variations using regular expression language. \\
+					Example: "a b", "a c", "a d"  can be converted into regex "a (b|c|d)"
+			\item	Go to step 3 but now number of features is $|W|+$ n\_of\_good\_reg\_exes
+		\end{enumerate}
+
+		I am not sure if this will generate all possible word occurences but I think reg-exes are
+		pretty rich as feature set and their computation is all paralelizable so it doesn't matter if 
+		it is very expensive.
+		
+		
+		Can we let some genetic algorithm work on this instead?
+
+
+
+    \subsection{Two data set correlations}
+
+        You browse wikipedia about quantum informaiton topics and it suggests
+        papers that are most similar to the subject --- not so useful.
+
+        Maybe the opposite is better, as you browse the arXiv you get suggested
+        links to articles on wikipedia that cover similar topics.
+
+
+
+
+	
+	\subsection{This paper covers}
+	
+		User interface idea: papers laid out on a table in such a way that the papers that
+		cite each other overlap. All papers in the same "epoch" are visible at the same time
+		and placement and paper size indicates relative importance.
+		
+		(One way to think about this is where are the words of this each topic passed on from one generation
+		to the next)
+		 
+		
+	\subsection{CUDA CUDA CUDA}
+				
+
+
+\bibliographystyle{alpha}
+\bibliography{arXivLDA}
+
+
+\end{document}

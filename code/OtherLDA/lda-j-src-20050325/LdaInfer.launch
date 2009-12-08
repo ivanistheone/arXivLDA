@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.knowceans.lda.LdaEstimate"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="inf settings.txt berry.model/034 berry.inf/berry_q.dat berry.inf/berry_q"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="lda-j"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-esa -ea"/>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+</listAttribute>
+<booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="true"/>
+</launchConfiguration>

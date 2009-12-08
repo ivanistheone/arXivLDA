@@ -1,0 +1,118 @@
+<DOC>
+<DOCNO> b1 </DOCNO>
+<TEXT>
+Integral Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b2</DOCNO>
+<TEXT>
+Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b3 </DOCNO>
+<TEXT>
+Algorithm Theory Implementation Application
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b4 </DOCNO>
+<TEXT>
+Partial Differential Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b5 </DOCNO>
+<TEXT>
+Algorithm Introduction
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b6 </DOCNO>
+<TEXT>
+Introduction System Problem
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b7 </DOCNO>
+<TEXT>
+Problem Algorithm Implementation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b8 </DOCNO>
+<TEXT>
+Method System Ordinary Differential Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b9 </DOCNO>
+<TEXT>
+Nonlinear System
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b10 </DOCNO>
+<TEXT>
+Ordinary Differential Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b11 </DOCNO>
+<TEXT>
+Oscillation Theory Differential Equation Delay
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b12</DOCNO>
+<TEXT>
+Oscillation Theory Delay Differential Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b13 </DOCNO>
+<TEXT>
+Nonlinear Partial Differential Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b14 </DOCNO>
+<TEXT>
+Method Differential Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b15 </DOCNO>
+<TEXT>
+Differential Equation
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b16 </DOCNO>
+<TEXT>
+Integral Problem
+</TEXT>
+</DOC>
+
+<DOC>
+<DOCNO> b17 </DOCNO>
+<TEXT>
+Integral Application Theory
+</TEXT>
+</DOC>

@@ -1,0 +1,19 @@
+\begin{thebibliography}{TNW07}
+
+\bibitem[AWST]{Teh2009}
+A.~Asuncion, M.~Welling, P.~Smyth, and Y.W. Teh.
+\newblock {On Smoothing and Inference for Topic Models}.
+
+\bibitem[BNJ03]{Blei2003}
+D.M. Blei, A.Y. Ng, and M.I. Jordan.
+\newblock {Latent dirichlet allocation}.
+\newblock {\em The Journal of Machine Learning Research}, 3:993--1022, 2003.
+
+\bibitem[TNW07]{Teh2007}
+Y.W. Teh, D.~Newman, and M.~Welling.
+\newblock {A collapsed variational bayesian inference algorithm for latent
+  dirichlet allocation}.
+\newblock {\em Advances in neural information processing systems}, 19:1353,
+  2007.
+
+\end{thebibliography}

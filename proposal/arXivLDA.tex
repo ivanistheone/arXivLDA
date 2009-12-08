@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.2in]{geometry}
+%\usepackage{supertabular}
+%\usepackage{setspace}
+%\doublespacing
+%\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newcommand{\company}[1]{\verb|#1|}
+\newcommand{\software}[1]{\verb|#1|}
+\newcommand{\project}[1]{\texttt{#1}}
+\newcommand{\comment}[1]{ [ \textit{#1} ] }
+
+\author{Ivan Savov}
+\title{ {\Huge Latent Dirichlet Allocation for scientific topic extraction } }
+
+\begin{document}
+\maketitle
+
+\abstract{
+    We would like to automatically learn a topic model from a large collection of scientific articles 
+    using Latent Dirichlet Allocation.
+    The data set is the entire pdf contents of the Cornell Physics pre-print archive arXiv.org for the \texttt{quant-ph} category.
+    The goal is to meaningful clusters of the scientific research which can help with document discovery.
+}
+
+
+{\bf keywords: } LDA, graphical model, arXiv, topic model, domain knowledge
+
+
+
+\section{Introduction}
+
+	When I first learned about Latent Dirichlet Allocation I was totally amazed by the seemingly magical ability
+	of this algorithm to automatically discern the topics underlying a collection of documents.
+	Since then I have been thinking about how I can apply this method to  
+
+
+\section{The data set}
+
+	The good people who run the arXiv.org were kind enough to send me the entire collection of papers
+	in the \texttt{quant-ph} repository. The papers contain nearly all the research in the physical sciences
+	that is not particle physics.
+	 
+	\begin{verbatim}
+	ivan@flicker:/scratch/arxiv$ du -sh *
+	7.1G    pdf
+	2.1G    tex
+	ivan@flicker:/scratch/arxiv$ find pdf/ -type f | wc
+	31739   31739  730019
+	ivan@flicker:/scratch/arxiv$ find tex/ -type f | wc
+	21061   21061  470945
+	\end{verbatim}
+	
+	The \texttt{pdf/} directory contains the pdf versions of the papers and for some of these papers.
+	For about $2/3$ of these we also have the latex source code in the \texttt{tex/} directory.
+	
+	Some more information about the dataset:
+	\begin{itemize}
+		\item Total number of documents: 31739
+		\item Earliest date: 22 Dec 1994  (pdf/9412/9412002v1.pdf)
+		\item Most recent:  30 Mar 2007 (pdf/0703/0703278v1.pdf)
+	\end{itemize}
+	
+	
+	\subsection{Intended pre-processing}
+	
+		I plan to use the command \texttt{pdftotext} to convert the pdf documents to text files and
+		then use the standard bag-of-words paradigm for each document.
+		
+		I will do a first pass on the documents and remove stopwords.		
+		Given how large of a dataset is available I will try to run my algorithm without stemming in order
+		to capture as much of the granularity of the data.
+		If this proves to be ineffective then I will use stemming.
+		  
+
+	
+\section{Project proposal}
+
+	I will read the original 2003 paper by Blei, Ng and Jordan \cite{Blei2003} and also perform a general literature
+	review on topic models.
+	In particular, I want to verify the results of the ICML09 paper \cite{Teh2009} which state that all the different 
+	models of training
+	LDA are equivalent and only differ by the setting of the hyper-parameters.
+	
+	I will try to implement the Collapsed Variational Bayes technique of \cite{Teh2007}.
+	
+	The results I would like to obtain is some meaningful cluster structure over the scientific topics.
+	
+	
+\section{Next steps}
+	
+	I will need to move the data to powerful workstation where I can do the pre-processing of the
+	documents and perform the word counts.
+	
+	Then, I must look into the algorithm which I will use for training.
+	
+	
+\section{Questions}
+
+	Is this a acceptable/viable term project for COMP-652?
+	\ \\
+	\ \\
+	\noindent Is the LDA training doable for such a large dataset on a desktop computer?
+	
+	
+	
+
+
+\bibliographystyle{alpha}
+\bibliography{arXivLDA}
+
+
+\end{document}
