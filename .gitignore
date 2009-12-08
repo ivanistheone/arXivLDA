@@ -1,1 +1,5 @@
+syntax: glob
+*.pyc
+*.swp
+*~
 data
