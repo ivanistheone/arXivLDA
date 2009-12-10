@@ -6,6 +6,8 @@
 
 #include <Python.h>
 
+// declaration...
+static PyObject* fib(PyObject *self, PyObject *args);
 
 static PyObject*
 fib(PyObject *self, PyObject *args)
@@ -23,17 +25,26 @@ fib(PyObject *self, PyObject *args)
     //Then we instantiate a new Python list, using PyList_New, which accepts an integer as the length of the list. Since we don’t know how long the list will be when we finish, we start with zero.
 
     PyObject *list = PyList_New(0);
+    PyObject *number; 
 
 
     // Then we get to the guts of the actual calculation. The line we pay attention to is the PyList_Append(list, PyInt_FromLong(b));, as that is where and how we add another item to the list. PyList_Append is analogous to Python’s list.append() method. We use PyInt_FromLong to create a Python object from the integer in the loop.
 
     while (b<n) {
-        PyList_Append(list, PyInt_FromLong(b));
+
+        number = PyInt_FromLong(b); // Need to get the pointer (see below)
+        
+        PyList_Append(list, number);
+        
+        Py_DECREF(number);          // so I can DECREF it if necessary
+        // more info: http://www.python.org/doc/2.3.5/api/refcountDetails.html
+
         c=a+b;
         a=b;
         b=c;
     }
 
+    
     return list;    //a PyList object pointer ...
 
 }
