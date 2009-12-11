@@ -29,6 +29,8 @@ print( datetime.now().time() )
 filecount = 0
 nerrors = 0
 
+log = open("errors_pdftotext.log","w")
+inv = open("alldocs.txt","w")
 # walk the directories and produce
 for root, dirs, files in os.walk(data_path):
 
@@ -56,11 +58,19 @@ for root, dirs, files in os.walk(data_path):
                                        ).communicate()
         if err:
             print err
-            nerrors+=1	
+            nerrors+=1
+            log.write(destination+"\n")
+        else:
+            inv.write(destination+"\n")
+
+
         filecount = filecount+1
         if filecount in [ int(nfiles/10)*i for i in [1,2,3,4,5,6,7,8,9] ]:
             print "10% gone by...."
 
+
+log.close()
+inv.close()
 
 print "Done work at:"
 print( datetime.now().time() )
