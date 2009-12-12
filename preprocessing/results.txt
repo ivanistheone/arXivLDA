@@ -2,3 +2,13 @@
 total number of words 196183251
 
 
+Fri 11 Dec 2009 19:04:46 EST
+
+    After removing multiple version of the papers we dropped to 20k documents:
+       31732   31732 1047178 oldcode/datawithdups.txt
+       20166   20166  665489 data.txt
+
+    nice.... 30% decrease ... 
+
+
+
