@@ -28,5 +28,19 @@ STOPWORDS =  ("a", "about", "above", "above", "across", "after", "afterwards", "
 "well", "were", "what", "whatever", "when", "whence", "whenever", "where", "whereafter", "whereas",
 "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who",
 "whoever", "whole", "whom", "whose", "why", "will", "with", "within", "without", "would", "yet",
-"you", "your", "yours", "yourself", "yourselves", "the")
+"you", "your", "yours", "yourself", "yourselves", "the", 'lest', 'secondly', 'particularly', 'just',
+'years', 'using', 'useful', 'causes', 'make', 'selves', 'specified', 'better', '0', '4', '8', 'unto',
+'sent', 'good', 'somebody', 'provides', 'far', 'overall', 'ones', 'know', 'new', 'world', 'day', 'apart',
+'like', 'did', 'l', 'p', 't', 'h', 'x', 'went', 'e', 'ignored', 'right', 'old', 'people', 'doing', 'd',
+'second', 'ex', 'year', 'et', 'eq', 'best', 'really', 'said', 'appear', 'twice', 'furthermore', 'currently',
+'brief', '3', 'does', 'various', 'fifth', '7', 'got', 'forth', 'available', 'respectively', 'men', 'use',
+'quite', 'come', 'sub', 'great', 'g', 'oh', 'theirs', 'k', 'allows', 'o', 's', 'plus', 'howbeit', 'w',
+'usually', 'que', 'changes', 'hither', 'followed', 'awfully', 'appropriate', 'viz', 'everybody', 'sensible',
+'little', 'described', 'contains', 'inasmuch', 'long', 'indicate', 'accordingly', '2', 'way', '6', 'taken',
+'hardly', 'gives', 'life', 'corresponding', 'c', 'immediate', 'somewhat', 'particular', 'probably', 'given',
+'specify', 'b', 'f', 'work', 'zero', 'value', 'n', 'placed', 'near', 'r', 'ought', 'mr', 'following', 'z',
+'example', 'gone', 'seven', 'v', 'associated', 'indicated', 'certain', 'novel', 'al', 'anybody', 'indicates',
+'vs', 'relatively', 'different', 'thoroughly', 'self', 'downwards', 'aside', 'thorough', 'j', '1', '5', '9',
+'instead', 'gets', 'used', 'unless', 'shall', 'containing', 'uses', 'contain', 'man', 'don', 'i',
+'consequently', 'm', 'kept', 'having', 'q', 'u', 'specifying', 'insofar', 'y', 'normally', 'away', 'came' )
 

@@ -128,11 +128,23 @@
 	
 \section{Next steps}
 	
-	I will need to move the data to powerful workstation where I can do the pre-processing of the
-	documents and perform the word counts.
-	
-	Then, I must look into the algorithm which I will use for training.
-	
+    Prepare python script for generating a topicmodel run. \\
+    folder + symlinks\\
+    docs.txt \\
+    run it and time it \\ 
+    check memory usage as it runs \\
+
+
+    See how to classify new documents.
+
+
+    Compare for different NITER and Ntopics
+
+
+    Calculate perplexity and KL distance for different runs with same parameters
+
+
+    
 
 	
 \section{Questions}
@@ -194,8 +206,21 @@
 		to the next)
 		 
 		
-	\subsection{CUDA CUDA CUDA}
-				
+	\subsection{CUDA }
+			
+    \subsection{Citaiton graph}
+        We can use a simple reg-ex to match things like \\
+        \verb| quant-?ph\d{7} | and extract all citations to other
+        papers on the archive.
+        It won't be very complete, but you can still extract a sense 
+        of importance from it !
+        page rank ;)
+
+    \section{Metadata}
+        We should have the titles for each of these articles I think
+        we need a little urllib2 script to get each of
+        \verb|http://arxiv.org/list/quant-ph/0003?show=1000|
+        where 0003 corresponds to my folder 0003 
 
 
 \bibliographystyle{alpha}
