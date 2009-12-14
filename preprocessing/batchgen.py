@@ -23,6 +23,7 @@ if __name__ == '__main__':
 
     allfiles = open(args.input,'r').readlines()
 
+
     if args.output:
         outfile = open(args.output,'w')
     else:
@@ -32,7 +33,9 @@ if __name__ == '__main__':
     allfiles = [file for file in allfiles if len(file.strip() )>0]
 
 
-    #ntotal = len(allfiles)
+    ntotal = len(allfiles)
+    if args.number > ntotal:
+        args.number = ntotal
 
     # randomize
     random.shuffle(allfiles)
