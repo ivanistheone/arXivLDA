@@ -1,3 +1,347 @@
+id: cannot find name for group ID 14911
+isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ # PREPROCESSING START
+isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ ls
+argparse.py   batch2cvbwc.py  data.txt	     oldcode	   results.txt	stopwords.py
+argparse.pyc  batchgen.py     dupremover.py  pdftotext.py  screenlog.0
+isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ vim pdftotext.py 
+[?1049h[?1h=[1;50r[34l[34h[?25h[23m[24m[m[H[J[?25l[50;1H"pdftotext.py" "pdftotext.py" 79L, 1859C[1;1H[35mimport[m os
+[35mfrom[m os.path [35mimport[m join, getsize
+[35mimport[m subprocess
+
+
+[34m# walk entire data directory[m
+
+
+PROJECT_PATH=os.path.realpath(os.path.join(os.path.dirname(__file__),"[31m..[m"))
+
+data_path = os.path.join(PROJECT_PATH, "[31mdata/pdf[m")
+text_path = os.path.join(PROJECT_PATH, "[31mdata/text[m")
+
+
+[34m# count total number of files[m
+nfiles = 0
+
+[33mfor[m root, dirs, files [33min[m os.walk(data_path):
+    nfiles = nfiles + len(files)
+[33mprint[m "[31mStartomg pdfto latex conversion on [m", str(nfiles), "[31m files[m"
+
+[35mfrom[m datetime [35mimport[m datetime
+
+
+[33mprint[m "[31mStarting work at:[m"
+[33mprint[m( datetime.now().time() )
+
+
+filecount = 0
+nerrors = 0
+
+log = open("[31merrors_pdftotext.log[m","[31mw[m")
+inv = open("[31malldocs.txt[m","[31mw[m")
+[34m# walk the directories and produce[m
+[33mfor[m root, dirs, files [33min[m os.walk(data_path):[38;5H[34m# prepare the output directory[m
+[34m[47m+-- 31 lines: text_root = root.replace("data/pdf", "data/text")-------------------------------------------------------------------------------[m[42;1Hlog.close()
+inv.close()
+
+[33mprint[m "[31mDone work at:[m"
+[33mprint[m( datetime.now().time() )
+
+[33mprint[m "[31mtotal n of files where somethign on strerr[m", str(nerrors)[50;125H1,1           All[1;1H[34h[?25h[?25l[23m[24m[m[H[J[2;1H[1m[34m~                                                                                                                                             [3;1H~                                                                                                                                             [4;1H~                                                                                                                                             [5;1H~                                                                                                                                             [6;1H~                                                                                                                                             [7;1H~                                                                                                                                             [8;1H~                                                                                                                                             [9;1H~                                                                                                                                             [10;1H~                                                                                                                                             [11;1H~                                                                                                                                             [12;1H~                                                                                                                                             [13;1H~                                                                                                                                             [14;1H~                                                                                                                                             [15;1H~                                                                                                                                             [16;1H~                                                                                                                                             [17;1H~                                                                                                                                             [18;1H~                                                                                                                                             [19;1H~                                                                                                                                             [20;1H~                                                                                                                                             [21;1H~                                                                                                                                             [22;1H~                                                                                                                                             [23;1H~                                                                                                                                             [24;1H~                                                                                                                                             [25;1H~                                                                                                                                             [26;1H~                                                                                                                                             [27;1H~                                                                                                                                             [28;1H~                                                                                                                                             [29;1H~                                                                                                                                             [30;1H~                                                                                                                                             [31;1H~                                                                                                                                             [32;1H~                                                                                                                                             [33;1H~                                                                                                                                             [34;1H~                                                                                                                                             [35;1H~                                                                                                                                             [36;1H~                                                                                                                                             [37;1H~                                                                                                                                             [38;1H~                                                                                                                                             [39;1H~                                                                                                                                             [40;1H~                                                                                                                                             [41;1H~                                                                                                                                             [42;1H~                                                                                                                                             [43;1H~                                                                                                                                             [44;1H~                                                                                                                                             [45;1H~                                                                                                                                             [46;1H~                                                                                                                                             [47;1H~                                                                                                                                             [48;1H~                                                                                                                                             [49;1H~                                                                                                                                             [m[50;125H79,0-1        Bot[1;1H[34h[?25h[?25l[34h[?25h[?25l[34h[?25h[?25l[23m[24m[m[H[J[1;1H[35mimport[m os
+[35mfrom[m os.path [35mimport[m join, getsize
+[35mimport[m subprocess
+
+
+[34m# walk entire data directory[m
+
+
+PROJECT_PATH=os.path.realpath(os.path.join(os.path.dirname(__file__),"[31m..[m"))
+
+data_path = os.path.join(PROJECT_PATH, "[31mdata/pdf[m")
+text_path = os.path.join(PROJECT_PATH, "[31mdata/text[m")
+
+
+[34m# count total number of files[m
+nfiles = 0
+
+[33mfor[m root, dirs, files [33min[m os.walk(data_path):
+    nfiles = nfiles + len(files)
+[33mprint[m "[31mStartomg pdfto latex conversion on [m", str(nfiles), "[31m files[m"
+
+[35mfrom[m datetime [35mimport[m datetime
+
+
+[33mprint[m "[31mStarting work at:[m"
+[33mprint[m( datetime.now().time() )
+
+
+filecount = 0
+nerrors = 0
+
+log = open("[31merrors_pdftotext.log[m","[31mw[m")
+inv = open("[31malldocs.txt[m","[31mw[m")
+[34m# walk the directories and produce[m
+[33mfor[m root, dirs, files [33min[m os.walk(data_path):[38;5H[34m# prepare the output directory[m
+[34m[47m+-- 31 lines: text_root = root.replace("data/pdf", "data/text")-------------------------------------------------------------------------------[m[42;1Hlog.close()
+inv.close()
+
+[33mprint[m "[31mDone work at:[m"
+[33mprint[m( datetime.now().time() )
+
+[33mprint[m "[31mtotal n of files where somethign on strerr[m", str(nerrors)[50;125H79,0-1        All[49;1H[34h[?25h[?25l[50;125H78,1          All[48;1H[34h[?25h[?25l[50;125H77,0-1        All[47;1H[34h[?25h[?25l[50;125H76,1          All[46;1H[34h[?25h[?25l[50;125H75,1          All[45;1H[34h[?25h[?25l[50;125H74,0-1        All[44;1H[34h[?25h[?25l[50;125H73,1          All[43;1H[34h[?25h[?25l[50;125H72,1          All[42;1H[34h[?25h[?25l[50;125H[K[50;1H:[34h[?25hq[?25l:q[34h[?25h[?25l[50;1H[K[50;1H[?1l>[34h[?25h[?1049lisavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
+isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ ls
+argparse.py   batch2cvbwc.py  data.txt	     oldcode	   results.txt	stopwords.py
+argparse.pyc  batchgen.py     dupremover.py  pdftotext.py  screenlog.0
+isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ ./pdfto[K[K[K[K[K[K[Kpython pdftotext.py 
+Startomg pdfto latex conversion on  31739  files
+Starting work at:
+17:46:55.703559
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+
+Error: Missing language pack for 'Adobe-Japan1' mapping
+Error: Unknown font tag 'R189'
+Error (49622): No font in show
+Error (49636): No font in show
+Error (49650): No font in show
+Error (49664): No font in show
+Error (49679): No font in show
+Error (49687): No font in show
+Error: Missing language pack for 'Adobe-Japan1' mapping
+Error: Unknown font tag 'R235'
+Error (79659): No font in show/space
+Error (79672): No font in show
+Error (79677): No font in show
+
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
+Error: Illegal entry in bfrange block in ToUnicode CMap
 
 Error: May not be a PDF file (continuing anyway)
 Error: PDF file is damaged - attempting to reconstruct xref table...
@@ -5,6 +349,8 @@ Error: Couldn't find trailer dictionary
 Error: Couldn't read xref table
 
 10% gone by....
+
+
 Error: Bad bounding box for annotation
 Error: Bad bounding box for annotation
 
@@ -16551,570 +16897,12 @@ Error: Couldn't find trailer dictionary
 Error: Couldn't read xref table
 
 Done work at:
-04:06:57.708506
+20:24:57.630161
 total n of files where somethign on strerr 57
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ :logon
-bash: :logon: command not found
 isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ :startlog
-bash: :startlog: command not found
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ :log on
-bash: :log: command not found
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ screen -ls
-There is a screen on:
-	11328.pts-1.qubit-3	(04/12/09 01:14:02 AM)	(Attached)
-1 Socket in /var/run/screen/S-isavov.
-
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ screen -r
-There is a screen on:
-	11328.pts-1.qubit-3	(04/12/09 01:14:01 AM)	(Attached)
-There is no screen to be resumed.
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
 isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ 
 isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ ls
-pdftotext.py  screenlog.0
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ ca[K[K
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ ls
-pdftotext.py  screenlog.0
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ cd ..
-isavov@qubit-3:/diskless/qubit-3/arXivLDA$ ls
-code  data  preprocessing
-isavov@qubit-3:/diskless/qubit-3/arXivLDA$ cd data/
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data$ ls
-all_arXiv_quant-ph.tar	pdf  tex  text
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data$ cd text/
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/text$ wc 
-Display all 148 possibilities? (y or n)
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/text$ wc 
-^C
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/text$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/text$ ls
-0001  0011  0109  0207	0305  0403  0501  0511	0609  9503  9601  9611	9709  9807  9905
-0002  0012  0110  0208	0306  0404  0502  0512	0610  9504  9602  9612	9710  9808  9906
-0003  0101  0111  0209	0307  0405  0503  0601	0611  9505  9603  9701	9711  9809  9907
-0004  0102  0112  0210	0308  0406  0504  0602	0612  9506  9604  9702	9712  9810  9908
-0005  0103  0201  0211	0309  0407  0505  0603	0701  9507  9605  9703	9801  9811  9909
-0006  0104  0202  0212	0310  0408  0506  0604	0702  9508  9606  9704	9802  9812  9910
-0007  0105  0203  0301	0311  0409  0507  0605	0703  9509  9607  9705	9803  9901  9911
-0008  0106  0204  0302	0312  0410  0508  0606	9412  9510  9608  9706	9804  9902  9912
-0009  0107  0205  0303	0401  0411  0509  0607	9501  9511  9609  9707	9805  9903
-0010  0108  0206  0304	0402  0412  0510  0608	9502  9512  9610  9708	9806  9904
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/text$ wc 0005/0005
-Display all 183 possibilities? (y or n)
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/text$ wc 0005/0005[K[K[K[K*
-     37    1899   12150 0005/0005001v1.pdf.txt
-     36    1749   11011 0005/0005001v2.pdf.txt
-     35    1919   12068 0005/0005001v3.pdf.txt
-    223    2146   10943 0005/0005002v1.pdf.txt
-    243    9189   52720 0005/0005003v1.pdf.txt
-    224    9346   53937 0005/0005003v2.pdf.txt
-    254    5822   29551 0005/0005004v1.pdf.txt
-    138    2687   15790 0005/0005005v1.pdf.txt
-     13    1972   11715 0005/0005006v1.pdf.txt
-     13    1869   10952 0005/0005006v2.pdf.txt
-    163    6395   37798 0005/0005007v1.pdf.txt
-    177    3610   18430 0005/0005008v1.pdf.txt
-    133    3549   20674 0005/0005009v1.pdf.txt
-    133    3567   20778 0005/0005009v2.pdf.txt
-    130    3636   21167 0005/0005009v3.pdf.txt
-    141    3569   20676 0005/0005009v4.pdf.txt
-    133    3622   20947 0005/0005009v5.pdf.txt
-    384   12818   74007 0005/0005010v1.pdf.txt
-    378   12844   74144 0005/0005010v2.pdf.txt
-    419    5456   30602 0005/0005011v1.pdf.txt
-    131    3750   20301 0005/0005012v1.pdf.txt
-     97    2203   11621 0005/0005013v1.pdf.txt
-    123    2573   13780 0005/0005013v2.pdf.txt
-    644   16375   82166 0005/0005014v1.pdf.txt
-    578   16662   83796 0005/0005014v2.pdf.txt
-    578   16662   83795 0005/0005014v3.pdf.txt
-    434    7207   41014 0005/0005015v1.pdf.txt
-    728    7796   41384 0005/0005016v1.pdf.txt
-    121    3464   18613 0005/0005017v1.pdf.txt
-    234    8333   45977 0005/0005018v1.pdf.txt
-    263    5432   28395 0005/0005019v1.pdf.txt
-    102    2720   15396 0005/0005020v1.pdf.txt
-     98    7004   43802 0005/0005021v1.pdf.txt
-     82    3552   20777 0005/0005022v1.pdf.txt
-     67    3373   20076 0005/0005022v2.pdf.txt
-    257    4258   23211 0005/0005023v1.pdf.txt
-    961    9044   50656 0005/0005024v1.pdf.txt
-    961    9044   50656 0005/0005024v2.pdf.txt
-    961    9035   50604 0005/0005024v3.pdf.txt
-    952    9367   52877 0005/0005024v4.pdf.txt
-    155    7783   49601 0005/0005025v1.pdf.txt
-    440    9215   53876 0005/0005026v1.pdf.txt
-    441    9284   54263 0005/0005026v2.pdf.txt
-    442    9322   54586 0005/0005026v3.pdf.txt
-    543   10180   59361 0005/0005026v4.pdf.txt
-    526   10120   59245 0005/0005026v5.pdf.txt
-    235    4198   22026 0005/0005027v1.pdf.txt
-    122    3822   22153 0005/0005028v1.pdf.txt
-    120    3786   21739 0005/0005028v2.pdf.txt
-    123    3437   19700 0005/0005028v3.pdf.txt
-    569    8868   49051 0005/0005029v1.pdf.txt
-    129    3287   18123 0005/0005030v1.pdf.txt
-    243    4203   22375 0005/0005030v2.pdf.txt
-    146    4232   21786 0005/0005031v1.pdf.txt
-    104    4330   25618 0005/0005032v1.pdf.txt
-    263    4420   22268 0005/0005033v1.pdf.txt
-    101    2169   11191 0005/0005034v1.pdf.txt
-    144    2779   13726 0005/0005035v1.pdf.txt
-    341    1899   10323 0005/0005036v1.pdf.txt
-     54    1427    8236 0005/0005037v1.pdf.txt
-    285    4707   27379 0005/0005038v1.pdf.txt
-    285    4711   27400 0005/0005038v2.pdf.txt
-   1741   15076   71622 0005/0005039v1.pdf.txt
-   1749   15118   71894 0005/0005039v2.pdf.txt
-   1134    8006   37121 0005/0005040v1.pdf.txt
-   1354   11408   62554 0005/0005041v1.pdf.txt
-    297   10132   56239 0005/0005042v1.pdf.txt
-    176    3183   18558 0005/0005043v1.pdf.txt
-     83    2813   15056 0005/0005044v1.pdf.txt
-    532    7178   31824 0005/0005045v1.pdf.txt
-    469    6153   27752 0005/0005046v1.pdf.txt
-     62    2368   13069 0005/0005047v1.pdf.txt
-     79     804    4336 0005/0005048v1.pdf.txt
-    165    1156    6001 0005/0005048v2.pdf.txt
-    164    1165    6093 0005/0005048v3.pdf.txt
-    124    3510   18578 0005/0005049v1.pdf.txt
-    215    3599   20166 0005/0005050v1.pdf.txt
-    139    2580   14480 0005/0005051v1.pdf.txt
-    302    1885    9560 0005/0005052v1.pdf.txt
-    349    2154   10886 0005/0005052v2.pdf.txt
-    407    2547   12716 0005/0005052v3.pdf.txt
-   1147   14033   82469 0005/0005053v1.pdf.txt
-    458   12392   70781 0005/0005054v1.pdf.txt
-    458   12390   70779 0005/0005054v2.pdf.txt
-    444   11787   60431 0005/0005055v1.pdf.txt
-    136    4297   23582 0005/0005056v1.pdf.txt
-    170    4924   27469 0005/0005056v2.pdf.txt
-    109    4090   22828 0005/0005056v3.pdf.txt
-    109    4086   22830 0005/0005056v4.pdf.txt
-    706    7401   37380 0005/0005057v1.pdf.txt
-    541    7249   36665 0005/0005057v2.pdf.txt
-    694    7602   38996 0005/0005058v1.pdf.txt
-    208    2833   15598 0005/0005059v1.pdf.txt
-    241    3915   21915 0005/0005061v1.pdf.txt
-    233    3879   21700 0005/0005061v2.pdf.txt
-    229    3878   21792 0005/0005061v3.pdf.txt
-    215    3596   18179 0005/0005062v1.pdf.txt
-    159    3444   20305 0005/0005063v1.pdf.txt
-    109    3462   21347 0005/0005064v1.pdf.txt
-    406    2967   15978 0005/0005065v1.pdf.txt
-    149    2878   15511 0005/0005066v1.pdf.txt
-    366    6583   36809 0005/0005067v1.pdf.txt
-    258    5576   30611 0005/0005068v1.pdf.txt
-    907    6684   38278 0005/0005069v1.pdf.txt
-    262    2671   13881 0005/0005070v1.pdf.txt
-     80    3486   20082 0005/0005071v1.pdf.txt
-     76    3435   19766 0005/0005071v2.pdf.txt
-    190    3457   18513 0005/0005072v1.pdf.txt
-    171    3418   18733 0005/0005072v2.pdf.txt
-   1871   11765   58434 0005/0005073v1.pdf.txt
-   1739   14983   75610 0005/0005074v1.pdf.txt
-    519    6315   35001 0005/0005075v1.pdf.txt
-    689    6643   36424 0005/0005076v1.pdf.txt
-     70    3712   22398 0005/0005077v1.pdf.txt
-   1552   15991   85085 0005/0005078v1.pdf.txt
-    224    3582   19794 0005/0005079v1.pdf.txt
-    244    4078   21483 0005/0005080v1.pdf.txt
-    206    4268   23935 0005/0005081v1.pdf.txt
-    338    7736   43892 0005/0005082v1.pdf.txt
-    338    7737   43897 0005/0005082v2.pdf.txt
-    335    7760   44043 0005/0005082v3.pdf.txt
-     80    3149   18990 0005/0005083v1.pdf.txt
-    108    3498   21295 0005/0005084v1.pdf.txt
-    563    9766   56202 0005/0005085v1.pdf.txt
-    178    3575   18747 0005/0005086v1.pdf.txt
-    694   12252   61684 0005/0005087v1.pdf.txt
-      6      32     210 0005/0005087v2.pdf.txt
-    296    3824   22533 0005/0005088v1.pdf.txt
-    131    2732   15981 0005/0005089v1.pdf.txt
-    292    5085   29194 0005/0005090v1.pdf.txt
-    292    5085   29200 0005/0005090v2.pdf.txt
-    209    3322   18941 0005/0005092v1.pdf.txt
-    190    3149   17858 0005/0005093v1.pdf.txt
-    280    6958   36329 0005/0005094v1.pdf.txt
-     43    4515   28894 0005/0005095v1.pdf.txt
-    489    5097   29616 0005/0005096v1.pdf.txt
-    677   12630   71211 0005/0005097v1.pdf.txt
-    363    3118   15987 0005/0005098v1.pdf.txt
-   1119   13218   71246 0005/0005099v1.pdf.txt
-    294    3377   18370 0005/0005100v1.pdf.txt
-    244    5941   33149 0005/0005101v1.pdf.txt
-    238    5925   33079 0005/0005101v2.pdf.txt
-    142    4755   27260 0005/0005102v1.pdf.txt
-    124    4231   25502 0005/0005103v1.pdf.txt
-     61    1289    7589 0005/0005104v1.pdf.txt
-     61    1288    7588 0005/0005104v2.pdf.txt
-    102    1268    7552 0005/0005105v1.pdf.txt
-    438    8252   43385 0005/0005106v1.pdf.txt
-    444    9127   52178 0005/0005107v1.pdf.txt
-    490   11128   65496 0005/0005108v1.pdf.txt
-    264    5315   28130 0005/0005109v1.pdf.txt
-    270   25694  160417 0005/0005110v1.pdf.txt
-    291    3301   17977 0005/0005111v1.pdf.txt
-     69    3938   21281 0005/0005112v1.pdf.txt
-    267    3491   20086 0005/0005113v1.pdf.txt
-    392    7147   40459 0005/0005114v1.pdf.txt
-    381   10701   57725 0005/0005115v1.pdf.txt
-    380   10738   57833 0005/0005115v2.pdf.txt
-     74    3119   18598 0005/0005116v1.pdf.txt
-     88    3600   22305 0005/0005116v2.pdf.txt
-    111    3743   20657 0005/0005117v1.pdf.txt
-    116    3722   20826 0005/0005117v2.pdf.txt
-    201    9405   49578 0005/0005118v1.pdf.txt
-    136    1783    9217 0005/0005119v1.pdf.txt
-    523    4852   26924 0005/0005120v1.pdf.txt
-    403    3446   18133 0005/0005121v1.pdf.txt
-    623   13066   75062 0005/0005122v1.pdf.txt
-     56    3310   19270 0005/0005123v1.pdf.txt
-    178    5146   28873 0005/0005123v2.pdf.txt
-    341    7387   41113 0005/0005124v1.pdf.txt
-    225    7334   41025 0005/0005124v2.pdf.txt
-    342    1982   10679 0005/0005125v1.pdf.txt
-    269    3683   17116 0005/0005126v1.pdf.txt
-   1241   14162   78438 0005/0005127v1.pdf.txt
-    392    3729   20369 0005/0005128v1.pdf.txt
-    765    7943   34765 0005/0005129v1.pdf.txt
-    304    2989   16352 0005/0005130v1.pdf.txt
-     96    4754   28906 0005/0005131v1.pdf.txt
-   1264   13643   69135 0005/0005132v1.pdf.txt
-   1280   14053   71591 0005/0005132v2.pdf.txt
-    761    9913   54807 0005/0005133v1.pdf.txt
-    894   10647   59067 0005/0005133v2.pdf.txt
-    124    1901   10582 0005/0005134v1.pdf.txt
-  66256 1102738 6067254 total
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/text$ cd ..
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data$ wc *
-^C
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data$ ls
-all_arXiv_quant-ph.tar	pdf  tex  text
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data$ cd tex
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/tex$ wc *
-wc: 0001: Is a directory
-      0       0       0 0001
-wc: 0002: Is a directory
-      0       0       0 0002
-wc: 0003: Is a directory
-      0       0       0 0003
-wc: 0004: Is a directory
-      0       0       0 0004
-wc: 0005: Is a directory
-      0       0       0 0005
-wc: 0006: Is a directory
-      0       0       0 0006
-wc: 0007: Is a directory
-      0       0       0 0007
-wc: 0008: Is a directory
-      0       0       0 0008
-wc: 0009: Is a directory
-      0       0       0 0009
-wc: 0010: Is a directory
-      0       0       0 0010
-wc: 0011: Is a directory
-      0       0       0 0011
-wc: 0012: Is a directory
-      0       0       0 0012
-wc: 0101: Is a directory
-      0       0       0 0101
-wc: 0102: Is a directory
-      0       0       0 0102
-wc: 0103: Is a directory
-      0       0       0 0103
-wc: 0104: Is a directory
-      0       0       0 0104
-wc: 0105: Is a directory
-      0       0       0 0105
-wc: 0106: Is a directory
-      0       0       0 0106
-wc: 0107: Is a directory
-      0       0       0 0107
-wc: 0108: Is a directory
-      0       0       0 0108
-wc: 0109: Is a directory
-      0       0       0 0109
-wc: 0110: Is a directory
-      0       0       0 0110
-wc: 0111: Is a directory
-      0       0       0 0111
-wc: 0112: Is a directory
-      0       0       0 0112
-wc: 0201: Is a directory
-      0       0       0 0201
-wc: 0202: Is a directory
-      0       0       0 0202
-wc: 0203: Is a directory
-      0       0       0 0203
-wc: 0204: Is a directory
-      0       0       0 0204
-wc: 0205: Is a directory
-      0       0       0 0205
-wc: 0206: Is a directory
-      0       0       0 0206
-wc: 0207: Is a directory
-      0       0       0 0207
-wc: 0208: Is a directory
-      0       0       0 0208
-wc: 0209: Is a directory
-      0       0       0 0209
-wc: 0210: Is a directory
-      0       0       0 0210
-wc: 0211: Is a directory
-      0       0       0 0211
-wc: 0212: Is a directory
-      0       0       0 0212
-wc: 0301: Is a directory
-      0       0       0 0301
-wc: 0302: Is a directory
-      0       0       0 0302
-wc: 0303: Is a directory
-      0       0       0 0303
-wc: 0304: Is a directory
-      0       0       0 0304
-wc: 0305: Is a directory
-      0       0       0 0305
-wc: 0306: Is a directory
-      0       0       0 0306
-wc: 0307: Is a directory
-      0       0       0 0307
-wc: 0308: Is a directory
-      0       0       0 0308
-wc: 0309: Is a directory
-      0       0       0 0309
-wc: 0310: Is a directory
-      0       0       0 0310
-wc: 0311: Is a directory
-      0       0       0 0311
-wc: 0312: Is a directory
-      0       0       0 0312
-wc: 0401: Is a directory
-      0       0       0 0401
-wc: 0402: Is a directory
-      0       0       0 0402
-wc: 0403: Is a directory
-      0       0       0 0403
-wc: 0404: Is a directory
-      0       0       0 0404
-wc: 0405: Is a directory
-      0       0       0 0405
-wc: 0406: Is a directory
-      0       0       0 0406
-wc: 0407: Is a directory
-      0       0       0 0407
-wc: 0408: Is a directory
-      0       0       0 0408
-wc: 0409: Is a directory
-      0       0       0 0409
-wc: 0410: Is a directory
-      0       0       0 0410
-wc: 0411: Is a directory
-      0       0       0 0411
-wc: 0412: Is a directory
-      0       0       0 0412
-wc: 0501: Is a directory
-      0       0       0 0501
-wc: 0502: Is a directory
-      0       0       0 0502
-wc: 0503: Is a directory
-      0       0       0 0503
-wc: 0504: Is a directory
-      0       0       0 0504
-wc: 0505: Is a directory
-      0       0       0 0505
-wc: 0506: Is a directory
-      0       0       0 0506
-wc: 0507: Is a directory
-      0       0       0 0507
-wc: 0508: Is a directory
-      0       0       0 0508
-wc: 0509: Is a directory
-      0       0       0 0509
-wc: 0510: Is a directory
-      0       0       0 0510
-wc: 0511: Is a directory
-      0       0       0 0511
-wc: 0512: Is a directory
-      0       0       0 0512
-wc: 0601: Is a directory
-      0       0       0 0601
-wc: 0602: Is a directory
-      0       0       0 0602
-wc: 0603: Is a directory
-      0       0       0 0603
-wc: 0604: Is a directory
-      0       0       0 0604
-wc: 0605: Is a directory
-      0       0       0 0605
-wc: 0606: Is a directory
-      0       0       0 0606
-wc: 0607: Is a directory
-      0       0       0 0607
-wc: 0608: Is a directory
-      0       0       0 0608
-wc: 0609: Is a directory
-      0       0       0 0609
-wc: 0610: Is a directory
-      0       0       0 0610
-wc: 0611: Is a directory
-      0       0       0 0611
-wc: 0612: Is a directory
-      0       0       0 0612
-wc: 0701: Is a directory
-      0       0       0 0701
-wc: 0702: Is a directory
-      0       0       0 0702
-wc: 0703: Is a directory
-      0       0       0 0703
-wc: 9406: Is a directory
-      0       0       0 9406
-wc: 9407: Is a directory
-      0       0       0 9407
-wc: 9409: Is a directory
-      0       0       0 9409
-wc: 9411: Is a directory
-      0       0       0 9411
-wc: 9412: Is a directory
-      0       0       0 9412
-wc: 9501: Is a directory
-      0       0       0 9501
-wc: 9502: Is a directory
-      0       0       0 9502
-wc: 9503: Is a directory
-      0       0       0 9503
-wc: 9504: Is a directory
-      0       0       0 9504
-wc: 9505: Is a directory
-      0       0       0 9505
-wc: 9506: Is a directory
-      0       0       0 9506
-wc: 9507: Is a directory
-      0       0       0 9507
-wc: 9508: Is a directory
-      0       0       0 9508
-wc: 9509: Is a directory
-      0       0       0 9509
-wc: 9510: Is a directory
-      0       0       0 9510
-wc: 9511: Is a directory
-      0       0       0 9511
-wc: 9512: Is a directory
-      0       0       0 9512
-wc: 9601: Is a directory
-      0       0       0 9601
-wc: 9602: Is a directory
-      0       0       0 9602
-wc: 9603: Is a directory
-      0       0       0 9603
-wc: 9604: Is a directory
-      0       0       0 9604
-wc: 9605: Is a directory
-      0       0       0 9605
-wc: 9606: Is a directory
-      0       0       0 9606
-wc: 9607: Is a directory
-      0       0       0 9607
-wc: 9608: Is a directory
-      0       0       0 9608
-wc: 9609: Is a directory
-      0       0       0 9609
-wc: 9610: Is a directory
-      0       0       0 9610
-wc: 9611: Is a directory
-      0       0       0 9611
-wc: 9612: Is a directory
-      0       0       0 9612
-wc: 9701: Is a directory
-      0       0       0 9701
-wc: 9702: Is a directory
-      0       0       0 9702
-wc: 9703: Is a directory
-      0       0       0 9703
-wc: 9704: Is a directory
-      0       0       0 9704
-wc: 9705: Is a directory
-      0       0       0 9705
-wc: 9706: Is a directory
-      0       0       0 9706
-wc: 9707: Is a directory
-      0       0       0 9707
-wc: 9708: Is a directory
-      0       0       0 9708
-wc: 9709: Is a directory
-      0       0       0 9709
-wc: 9710: Is a directory
-      0       0       0 9710
-wc: 9711: Is a directory
-      0       0       0 9711
-wc: 9712: Is a directory
-      0       0       0 9712
-wc: 9801: Is a directory
-      0       0       0 9801
-wc: 9802: Is a directory
-      0       0       0 9802
-wc: 9803: Is a directory
-      0       0       0 9803
-wc: 9804: Is a directory
-      0       0       0 9804
-wc: 9805: Is a directory
-      0       0       0 9805
-wc: 9806: Is a directory
-      0       0       0 9806
-wc: 9807: Is a directory
-      0       0       0 9807
-wc: 9808: Is a directory
-      0       0       0 9808
-wc: 9809: Is a directory
-      0       0       0 9809
-wc: 9810: Is a directory
-      0       0       0 9810
-wc: 9811: Is a directory
-      0       0       0 9811
-wc: 9812: Is a directory
-      0       0       0 9812
-wc: 9901: Is a directory
-      0       0       0 9901
-wc: 9902: Is a directory
-      0       0       0 9902
-wc: 9903: Is a directory
-      0       0       0 9903
-wc: 9904: Is a directory
-      0       0       0 9904
-wc: 9905: Is a directory
-      0       0       0 9905
-wc: 9906: Is a directory
-      0       0       0 9906
-wc: 9907: Is a directory
-      0       0       0 9907
-wc: 9908: Is a directory
-      0       0       0 9908
-wc: 9909: Is a directory
-      0       0       0 9909
-wc: 9910: Is a directory
-      0       0       0 9910
-wc: 9911: Is a directory
-      0       0       0 9911
-wc: 9912: Is a directory
-      0       0       0 9912
-      0       0       0 total
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/tex$ 
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/tex$ ls
-0001  0011  0109  0207	0305  0403  0501  0511	0609  9411  9509  9607	9705  9803  9901  9911
-0002  0012  0110  0208	0306  0404  0502  0512	0610  9412  9510  9608	9706  9804  9902  9912
-0003  0101  0111  0209	0307  0405  0503  0601	0611  9501  9511  9609	9707  9805  9903
-0004  0102  0112  0210	0308  0406  0504  0602	0612  9502  9512  9610	9708  9806  9904
-0005  0103  0201  0211	0309  0407  0505  0603	0701  9503  9601  9611	9709  9807  9905
-0006  0104  0202  0212	0310  0408  0506  0604	0702  9504  9602  9612	9710  9808  9906
-0007  0105  0203  0301	0311  0409  0507  0605	0703  9505  9603  9701	9711  9809  9907
-0008  0106  0204  0302	0312  0410  0508  0606	9406  9506  9604  9702	9712  9810  9908
-0009  0107  0205  0303	0401  0411  0509  0607	9407  9507  9605  9703	9801  9811  9909
-0010  0108  0206  0304	0402  0412  0510  0608	9409  9508  9606  9704	9802  9812  9910
-isavov@qubit-3:/diskless/qubit-3/arXivLDA/data/tex$ 
+alldocs.txt  argparse.pyc    batchgen.py  dupremover.py		oldcode       results.txt  stopwords.py
+argparse.py  batch2cvbwc.py  data.txt	  errors_pdftotext.log	pdftotext.py  screenlog.0
+isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ m[Kmc e[K[K[Kv errors_pdftotext.log >> oldcode/[1P oldcode/[1P oldcode/[1Poldcode/[C oldcode/
+isavov@qubit-3:/diskless/qubit-3/arXivLDA/preprocessing$ ls[1Ps[Kexit
