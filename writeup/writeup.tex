@@ -23,12 +23,20 @@
 \maketitle
 
 \abstract{
-    We learn a topic model from a large collection of scientific articles using Latent Dirichlet Allocation.
-    The data set is the entire pdf contents of the Cornell Physics pre-print archive arXiv.org for the \texttt{quant-ph} category.
-    We represent each document as an array of word counts from a fixed dictionary of size $W=?$,
-    which we determined by 
+    We experiment with an automated topic extraction algorithm based on a generative graphical model.
+    %learn a topic model from a large collection of scientific articles using 
+    Latent Dirichlet Allocation is a assumes that individual words that appear in a document collection
+    are drawn form a family of distibutions associated with different topics.
+    We automatically learn this distribution from a collection of 20000 physics journal articles:
+    % The data set is 
+    the fulltext of the \texttt{quant-ph} category of the arXiv.org preprint archive between
+    the years 1994 and 2007.
+    We evaluate our results using the perplexity measure on the document collection.
 
-    We display the discovered topics and incorporate them into a rudimentary recommendation system.
+    %We represent each document as an array of word counts from a fixed dictionary of size $W=?$,
+    %which we determined by 
+
+    %We display the discovered topics and incorporate them into a rudimentary recommendation system.
 }
 
 
