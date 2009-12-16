@@ -35,7 +35,7 @@ gl("Building the run queue", logfile)
 runs = []
 counter = 200
 for NITER in [5, 10, 20, 30, 50, 75, 100, 150, 200, 300]:
-    gl("Starting iteration with NITER="+str(NITER), logfile)
+    gl("Setting up iteration with NITER="+str(NITER), logfile)
     counter +=1
     r = rungen(counter, T=20, NITER=NITER, SEED=1)
     runs.append(r)

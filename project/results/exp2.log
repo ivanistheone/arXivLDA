@@ -1,0 +1,61 @@
+Building the run queue
+Starting iteration with NITER=5
+Starting iteration with NITER=10
+Starting iteration with NITER=20
+Starting iteration with NITER=30
+Starting iteration with NITER=50
+Starting iteration with NITER=75
+Starting iteration with NITER=100
+Starting iteration with NITER=150
+Starting iteration with NITER=200
+Starting iteration with NITER=300
+Starting run 201
+Run description: {'NITER': 5, 'name': 201, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run201_T20_NITER5_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run201_T20_NITER5_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run201_T20_NITER5_seed1/topicmodel 20 5 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run201_T20_NITER5_seed1/wp.txt'}
+start time: 2009-12-15 20:31:39.857911
+end time: 2009-12-15 20:35:28.994681
+run duration: 229 seconds
+Starting run 202
+Run description: {'NITER': 10, 'name': 202, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run202_T20_NITER10_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run202_T20_NITER10_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run202_T20_NITER10_seed1/topicmodel 20 10 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run202_T20_NITER10_seed1/wp.txt'}
+start time: 2009-12-15 20:35:28.995739
+end time: 2009-12-15 20:42:16.764343
+run duration: 407 seconds
+Starting run 203
+Run description: {'NITER': 20, 'name': 203, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run203_T20_NITER20_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run203_T20_NITER20_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run203_T20_NITER20_seed1/topicmodel 20 20 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run203_T20_NITER20_seed1/wp.txt'}
+start time: 2009-12-15 20:42:16.765236
+end time: 2009-12-15 20:55:05.048354
+run duration: 768 seconds
+Starting run 204
+Run description: {'NITER': 30, 'name': 204, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run204_T20_NITER30_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run204_T20_NITER30_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run204_T20_NITER30_seed1/topicmodel 20 30 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run204_T20_NITER30_seed1/wp.txt'}
+start time: 2009-12-15 20:55:05.049244
+end time: 2009-12-15 21:14:03.236059
+run duration: 1138 seconds
+Starting run 205
+Run description: {'NITER': 50, 'name': 205, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run205_T20_NITER50_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run205_T20_NITER50_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run205_T20_NITER50_seed1/topicmodel 20 50 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run205_T20_NITER50_seed1/wp.txt'}
+start time: 2009-12-15 21:14:03.236976
+end time: 2009-12-15 21:45:04.814842
+run duration: 1861 seconds
+Starting run 206
+Run description: {'NITER': 75, 'name': 206, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run206_T20_NITER75_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run206_T20_NITER75_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run206_T20_NITER75_seed1/topicmodel 20 75 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run206_T20_NITER75_seed1/wp.txt'}
+start time: 2009-12-15 21:45:04.815744
+end time: 2009-12-15 22:31:17.464573
+run duration: 2772 seconds
+Starting run 207
+Run description: {'NITER': 100, 'name': 207, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run207_T20_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run207_T20_NITER100_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run207_T20_NITER100_seed1/topicmodel 20 100 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run207_T20_NITER100_seed1/wp.txt'}
+start time: 2009-12-15 22:31:17.465473
+end time: 2009-12-15 23:33:39.714562
+run duration: 3742 seconds
+Starting run 208
+Run description: {'NITER': 150, 'name': 208, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run208_T20_NITER150_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run208_T20_NITER150_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run208_T20_NITER150_seed1/topicmodel 20 150 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run208_T20_NITER150_seed1/wp.txt'}
+start time: 2009-12-15 23:33:39.715494
+end time: 2009-12-16 01:05:55.410348
+run duration: 5535 seconds
+Starting run 209
+Run description: {'NITER': 200, 'name': 209, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run209_T20_NITER200_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run209_T20_NITER200_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run209_T20_NITER200_seed1/topicmodel 20 200 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run209_T20_NITER200_seed1/wp.txt'}
+start time: 2009-12-16 01:05:55.411277
+end time: 2009-12-16 03:09:40.063213
+run duration: 7424 seconds
+Starting run 210
+Run description: {'NITER': 300, 'name': 210, 'dpfile': '/diskless/qubit-3/arXivLDA/data/runs/run210_T20_NITER300_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/diskless/qubit-3/arXivLDA/data/runs/run210_T20_NITER300_seed1', 'runcommand': '/diskless/qubit-3/arXivLDA/data/runs/run210_T20_NITER300_seed1/topicmodel 20 300 1', 'wpfile': '/diskless/qubit-3/arXivLDA/data/runs/run210_T20_NITER300_seed1/wp.txt'}
+start time: 2009-12-16 03:09:40.064128
+end time: 2009-12-16 06:12:53.210220
+run duration: 10993 seconds
