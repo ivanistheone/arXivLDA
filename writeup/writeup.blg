@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
+The top-level auxiliary file: writeup.aux
+The style file: alpha.bst
+Database file #1: arXivLDA.bib
+Warning--empty journal in Teh2009
+Warning--empty year in Teh2009
+You've used 5 entries,
+            2543 wiz_defined-function locations,
+            594 strings with 5222 characters,
+and the built_in function-call counts, 1984 in all, are:
+= -- 192
+> -- 119
+< -- 0
++ -- 42
+- -- 42
+* -- 152
+:= -- 354
+add.period$ -- 14
+call.type$ -- 5
+change.case$ -- 34
+chr.to.int$ -- 5
+cite$ -- 7
+duplicate$ -- 68
+empty$ -- 124
+format.name$ -- 47
+if$ -- 382
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 5
+newline$ -- 27
+num.names$ -- 15
+pop$ -- 29
+preamble$ -- 1
+purify$ -- 39
+quote$ -- 0
+skip$ -- 60
+stack$ -- 0
+substring$ -- 87
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 40
+warning$ -- 2
+while$ -- 19
+width$ -- 6
+write$ -- 62
+(There were 2 warnings)

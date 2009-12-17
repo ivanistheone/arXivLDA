@@ -4,10 +4,12 @@
 %\usepackage{supertabular}
 %\usepackage{setspace}
 %\doublespacing
-%\usepackage{graphicx}
-\usepackage{hyperref}
+\usepackage{graphicx}
+%\usepackage{hyperref}
 
 \newcommand{\company}[1]{\verb|#1|}
+\newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\program}[1]{\texttt{#1}}
 \newcommand{\software}[1]{\verb|#1|}
 \newcommand{\project}[1]{\texttt{#1}}
 \newcommand{\comment}[1]{ [ \textit{#1} ] }
@@ -17,7 +19,7 @@
 \newcommand{\TT}{\mathcal{T}}
 
 \author{Ivan Savov}
-\title{ {\Huge Latent Dirichlet Allocation for \\ scientific topic extraction } }
+\title{ {\LARGE Latent Dirichlet Allocation for \\ scientific topic extraction } }
 
 \begin{document}
 \maketitle
@@ -25,41 +27,72 @@
 \abstract{
     We experiment with an automated topic extraction algorithm based on a generative graphical model.
     %learn a topic model from a large collection of scientific articles using 
-    Latent Dirichlet Allocation is a assumes that individual words that appear in a document collection
-    are drawn form a family of distibutions associated with different topics.
-    We automatically learn this distribution from a collection of 20000 physics journal articles:
+    Latent Dirichlet Allocation assumes that individual words that appear in a document collection
+    are drawn form a family of distibutions associated with a fixed number of topics. 
+    We automatically learn these word-topic distributions from a collection of 20000 physics journal articles:
     % The data set is 
-    the fulltext of the \texttt{quant-ph} category of the arXiv.org preprint archive between
-    the years 1994 and 2007.
+    the fulltext of the \texttt{arXiv.org/quant-ph} preprint archive between the years 1994 and 2007.
     We evaluate our results using the perplexity measure on the document collection.
 
     %We represent each document as an array of word counts from a fixed dictionary of size $W=?$,
     %which we determined by 
-
     %We display the discovered topics and incorporate them into a rudimentary recommendation system.
 }
 
-
-{\bf keywords: } LDA, topic model, collapsed variational bayes, domain knowledge, 
-
+\ \\
+\noindent {\bf keywords: } LDA, topic model, Gibbs sampling, clustering 
+           % collapsed variational bayes, domain knowledge, 
 
 
 \section{Introduction}
 
-	When I first learned about Latent Dirichlet Allocation I was totally amazed by the seemingly magical ability
-	of this algorithm to automatically discern the topics underlying a collection of documents.
-	Since then I have been thinking about how I can apply this method to  
+    There is a growing amount of unstructured data becoming freely available on the web and
+    through various digitizaiton efforts.
+    Due to the enormous scale of these data collections it is unrealistic to assume human
+    supervision can play any significant role in their classification and curatorship.
+    Clearly, automated largely-unsupervised machine learning techniques will be required
+    in order to deal with the information oveload.
 
+    The subjects of classification, retreival and browsing have been central topics of research
+    in the data mining community for the past decade, but there is still more work to be done.
+    Recently, there has been a surge of interest in the machine learning community about
+    ``topic models'' which attempt to automatically extract the subject matter from
+    document collections \cite{Blei2003,Blei2009}.
+    These techniques are scalable to very large document collections and produce very informative
+    results despite using the same old data mining paradigm of representing each document as bag of words.
 
-    Terms to discuss MAP, PLSA, VB, CVB0 etc...
+    For this project we will focus our attention on the \emph{latent Dirichlet allocation} (LDA) model
+    which is described in the seminal paper by Blei, Ng and Jordan \cite{Blei2003}. 
+    %This is the original proposal that kick-started the recent interest in topic models.
+    %The original paper uses variational methods to learn the model parameters which can be s, but 
+    We will use a Gibbs sampling approach to learn the LDA parameters which is very computationally
+    efficient \cite{griffiths2004finding}. 
+    Computaitonal efficiency will be important since our data set contains rougly 20k documents and 
+    which are represented as word counts of over a dictionry of 10k words.
+    
+    This report is structured as follows.
+    In the next section we will provide some theoretical background on the LDA model.
+    Afterwards, we will discuss the inference procedure we used to learn the model parameters.
+    Section \ref{section:data-set} is describes our data set and the preprocessing we performed.
+    We descirbe the results of two experiments in seciton \ref{section:results} and follow up
+    with a some discussion and a conclusion.
+
 
 
 \section{The model}
 
+    Terms to discuss MAP, PLSA, VB, CVB0 etc...
     LDA 
+    \begin{figure}[htb]
+    \begin{center}
+    \includegraphics[width=3in]{lda-diagram.png}  %[height=1in,width=1in,angle=-90]{foo}
+    \caption{ The graphical model behind LDA. $\theta$ is the distribution  of topics for a document,
+              $\beta$ is the distribution of words for a given topic.}
+    \end{center}
+    \end{figure}
 
 
-\section{The algorithm}
+\section{The inference algorithm}
 
     First we being by definiting some quantities
     
@@ -83,47 +116,162 @@
     To achieve this we will have to learn...
 
 
-\section{The data set}
+\section{The data set} \label{section:data-set}
 
 	The good people who run the arXiv.org were kind enough to send me the entire collection of papers
-	in the \texttt{quant-ph} repository. The papers contain nearly all the research in the physical sciences
-	that is not particle physics.
-	 
-	\begin{verbatim}
-	ivan@flicker:/scratch/arxiv$ du -sh *
-	7.1G    pdf
-	2.1G    tex
-	ivan@flicker:/scratch/arxiv$ find pdf/ -type f | wc
-	31739   31739  730019
-	ivan@flicker:/scratch/arxiv$ find tex/ -type f | wc
-	21061   21061  470945
-	\end{verbatim}
+	in the \texttt{quant-ph} repository! 
+    The arXiv is a prominent publication in the physicsl sciences and contains pre-print versions
+    of most of the important research in several areas.
+    Of particular interest is the field of quantum information science which is very well
+    represented.
 	
-	The \texttt{pdf/} directory contains the pdf versions of the papers and for some of these papers.
-	For about $2/3$ of these we also have the latex source code in the \texttt{tex/} directory.
+    The raw data that was received consists of two directories. 
+    The first directory, \file{pdf/} of size 7.1GB condains 31739 pdf documents.
+    The second directory \file{tex/}  contains the \LaTeX \ source code of some of the papers 
+    (its size is 2.1G and it contains 21061 files). 
+    Since the source code of only about $2/3$ of the papers was available, we decided to use 
+    the pdf version of the document collection.
+
+%	\begin{verbatim}
+%	ivan@flicker:/scratch/arxiv$ du -sh *
+%	7.1G    pdf
+%	2.1G    tex
+%	ivan@flicker:/scratch/arxiv$ find pdf/ -type f | wc
+%	31739   31739  730019
+%	ivan@flicker:/scratch/arxiv$ find tex/ -type f | wc
+%	21061   21061  470945
+%	\end{verbatim}
 	
-	Some more information about the dataset:
+%	The \texttt{pdf/} directory contains the pdf versions of the papers and for some of these papers.
+%	For about $2/3$ of these we also have the latex source code in the \texttt{tex/} directory.
+	
+	Some more information about the raw dataset.
 	\begin{itemize}
-		\item Total number of documents: 31739
+		\item Total number of pdf files: 31739
+        \item Total number of papers: 20166 (multiple versions v1,v2)
+        \item Number of files with unreadable/foreign fonts: 6
 		\item Earliest date: 22 Dec 1994  (pdf/9412/9412002v1.pdf)
 		\item Most recent:  30 Mar 2007 (pdf/0703/0703278v1.pdf)
 	\end{itemize}
 	
 	
-	\subsection{Intended pre-processing}
 	
-		I plan to use the command \texttt{pdftotext} to convert the pdf documents to text files and
-		then use the standard bag-of-words paradigm for each document.
-		
-		I will do a first pass on the documents and remove stopwords.		
-		Given how large of a dataset is available I will try to run my algorithm without stemming in order
-		to capture as much of the granularity of the data.
-		If this proves to be ineffective then I will use stemming.
+	\subsection{Textual pre-processing}
+
+        Since the intended feature vectors are word counts, we used the command-line utility
+        \texttt{pdftotext} (part of \program{xpdf}) to convert the pdf documents to text files.
+        The python script \file{preprocessing/pdftotext.py} accomplishes this and stores the
+        output in the folder \file{data/text} while at the same time creating an inventory of
+        all the available documents.
+        At this stage, some documents were found to be unreadable or used foreign language fonts
+        which were not recognized by xpdf. There were very few such documents so it was possible
+        to manually remove them from the inventory.
+
+        At this point we had 31732 documents in our ``inventory'', but some of these documents
+        were different version of the same underlying paper (ex: \file{9412002v1.pdf},
+        \file{9412002v2.pdf}, etc.).
+        We therefore ran \program{dupremover.py} which kept only the latest version.
+        After this step, the total number of papers in our data set decreased to 20166.
+
+        Before we can perform any word counts, however, we had to deal with a typographical issue.
+        Ligatures are linkages between the letters f, l and i in high quality fonts.
+        Since \LaTeX \ uses the computer modern fonts which have ligatures, the document collection
+        was full of them. For example, when I write the word ``affluent'' it will not be treanlsated
+        into the sequence of characters a,f,f,l,u,e,n,t but instead turn into a,ffl,u,e,n,t where 
+        ffl is a single unicode character. Can you see the difference between ffl and f{}f{}l?
+        In order to deal with this issue, I did a preliminary pass using \program{makewordstream.py}
+        expanding all ligatures to their consitituent letters. 
+        While I was at it, I also converted all words to lowercase ASCII.
 		  
 
+    \subsection{Dictionary selection}
 
+        The next step was to select a subset of all the words that occur in the document collection
+        for which we will perform word count.
+		I first pass was made on the documents to remove a standard list of stopwords (see
+        \file{stopwords.py}). 
+		Given how large the dataset is we did not feel it was necessay to use word stemming;
+        this way we can capture as much of the granularity of the data as possible.
+
+        The total number of unique words of 3 character or more at this step was 67075, and
+        contained lots of non-words like ``ijk'', which probably refer to matrix indices.
+        While 60k words is not an unreasonable dictionary size, it was deemed too large for
+        our purposes and an effort was made to cut down on the dictionary size.
+        The script \program{makevocab.py} goes through the word stream and counts total
+        number of occurences for each word. It then rejects all words that occur less than
+        45 times in the corpus. 
+        We also impose a minimum occurence threshold of 10000, 6000 and 2000 for three, four and
+        five letter words respectively.
+
+        The final pre-processing step selects the top 10011 words by overall frequency 
+        and stores it in the file \file{vocab.txt}.
+        This figure was inspired by the paper \cite{Blei2009}, where they use a vocabulary of this
+        size on a document collection roughly similar to our own.
+
+
+    \subsection{Sparse matrix format}
+
+        The input data that the \program{topicmodel} program expects is in a standard sparse 
+        matrix format which is generated by the script \program{Makedocword.pl}.
+        The resultting file \file{docword.txt} contains one row for each unique word
+        in each document. For example, consider the following exerpt:
+        \begin{verbatim}
+        #docword.txt
+        ...
+        34 376 6
+        34 6767 5
+        ...
+        \end{verbatim}
+        These two lines indicate that the document with id=34 contains 6 occurences of word 376
+        and 5 occerences of word 6767.
+        This is the standard bag-of-words paradigm for each document.
+        %    folder + symlinks\\
+
+
+    The following list summarizes the important details of the finalized data set 
+    at the stage when it is read to be fed to the Gibbs sampling inference algorithm.
+	\begin{itemize}
+        \item Size of vocabulary: $W=10011$  
+        \item Total number of documents: $D=20166$ 
+        \item Total number of words in corpus: $N=41202148$
+          %\item Total number of unique words: $N=11220266$
+	\end{itemize}
+
+
+
+\section{Results} \label{section:results}
 	
-\section{Research project}
+
+    The natural application of topic models is the automated extraction of topics from
+    the data set. 
+    Given that we have learned the 
+
+
+    Another, more scientific method for evaluating the performance of a topic model 
+    is to calulate the perplexity.
+    \begin{equation}
+        pplex\!\left(\DD\right) = \exp\left( - \frac{1}{N} \sum_1^N \log P(w_n|d_n) \right),
+    \end{equation}
+
+
+
+    See how to classify new documents.
+    Calculate perplexity and KL distance for different runs with same parameters
+
+    \subsection{Informal evaluation of extracted topics}
+
+        list them all....
+
+
+    \subsection{Number of topics}
+
+
+
+    \subsection{Gibbs sampling chain length}
+
+    Compare for different NITER and Ntopics
+        The 
+
 
 	I will read the original 2003 paper by Blei, Ng and Jordan \cite{Blei2003} and also perform a general literature
 	review on topic models.
@@ -135,30 +283,8 @@
 	
 	The results I would like to obtain is some meaningful cluster structure over the scientific topics.
 	
-	
-\section{Next steps}
-	
-    Prepare python script for generating a topicmodel run. \\
-    folder + symlinks\\
-    docs.txt \\
     run it and time it \\ 
     check memory usage as it runs \\
-
-
-    See how to classify new documents.
-
-
-    Compare for different NITER and Ntopics
-
-
-    Calculate perplexity and KL distance for different runs with same parameters
-
-
-    
-\section{Results}
-
-	
-	
 	
 	
 \section{Discussion and future work}
@@ -235,6 +361,7 @@
 \section{Conclusion}
 
     We have demonstrated that     
+
 
 \bibliographystyle{alpha}
 \bibliography{arXivLDA}

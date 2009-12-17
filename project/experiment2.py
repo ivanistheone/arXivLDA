@@ -49,7 +49,7 @@ for run in runs:
     start_time = datetime.datetime.now()
     gl("start time: "+str(start_time), logfile)
 
-
+    os.chdir(run["rundir"])
     (out,err)  = subprocess.Popen(run["runcommand"], shell=True, \
                                                stdout=subprocess.PIPE, \
                                                stderr=subprocess.PIPE \
