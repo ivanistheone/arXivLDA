@@ -1,0 +1,6 @@
+\[
+\Qcircuit @C=1em @R=1em { 
+    \lstick{\ket{0}} & \gate{H}     & \ctrl{1}  & \rstick{?} \qw \\ 
+    \lstick{\ket{0}} & \qw          & \targ     & \rstick{?} \qw
+}
+\]

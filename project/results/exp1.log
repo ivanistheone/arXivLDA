@@ -1,0 +1,123 @@
+Building the run queue
+Setting up iteration with T=3
+Setting up iteration with T=5
+Setting up iteration with T=10
+Setting up iteration with T=15
+Setting up iteration with T=20
+Setting up iteration with T=25
+Setting up iteration with T=30
+Setting up iteration with T=40
+Setting up iteration with T=50
+Setting up iteration with T=75
+Setting up iteration with T=100
+Setting up iteration with T=150
+Setting up iteration with T=200
+Setting up iteration with T=300
+Starting run 101
+Run description: {'NITER': 100, 'name': 101, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run101_T3_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 3, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run101_T3_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run101_T3_NITER100_seed1/topicmodel 3 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run101_T3_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 01:45:39.953657
+end time: 2009-12-16 02:09:47.446017
+run duration: 1447 seconds
+Starting run 102
+Run description: {'NITER': 100, 'name': 102, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run102_T5_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 5, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run102_T5_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run102_T5_NITER100_seed1/topicmodel 5 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run102_T5_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 02:09:47.448172
+end time: 2009-12-16 02:37:17.773733
+run duration: 1650 seconds
+Starting run 103
+Run description: {'NITER': 100, 'name': 103, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run103_T10_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 10, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run103_T10_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run103_T10_NITER100_seed1/topicmodel 10 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run103_T10_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 02:37:17.775617
+end time: 2009-12-16 03:11:56.915981
+run duration: 2079 seconds
+Starting run 104
+Run description: {'NITER': 100, 'name': 104, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run104_T15_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 15, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run104_T15_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run104_T15_NITER100_seed1/topicmodel 15 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run104_T15_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 03:11:56.917808
+end time: 2009-12-16 03:54:15.545840
+run duration: 2538 seconds
+Starting run 105
+Run description: {'NITER': 100, 'name': 105, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run105_T20_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run105_T20_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run105_T20_NITER100_seed1/topicmodel 20 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run105_T20_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 03:54:15.547612
+end time: 2009-12-16 04:41:53.445776
+run duration: 2857 seconds
+Starting run 106
+Run description: {'NITER': 100, 'name': 106, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run106_T25_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 25, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run106_T25_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run106_T25_NITER100_seed1/topicmodel 25 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run106_T25_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 04:41:53.448366
+end time: 2009-12-16 05:36:01.643738
+run duration: 3248 seconds
+Starting run 107
+Run description: {'NITER': 100, 'name': 107, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run107_T30_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 30, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run107_T30_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run107_T30_NITER100_seed1/topicmodel 30 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run107_T30_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 05:36:01.646501
+end time: 2009-12-16 06:36:03.319491
+run duration: 3601 seconds
+Starting run 108
+Run description: {'NITER': 100, 'name': 108, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run108_T40_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 40, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run108_T40_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run108_T40_NITER100_seed1/topicmodel 40 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run108_T40_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 06:36:03.321455
+end time: 2009-12-16 07:46:34.062624
+run duration: 4230 seconds
+Starting run 109
+Run description: {'NITER': 100, 'name': 109, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run109_T50_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 50, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run109_T50_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run109_T50_NITER100_seed1/topicmodel 50 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run109_T50_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 07:46:34.064278
+end time: 2009-12-16 09:08:38.930110
+run duration: 4924 seconds
+Starting run 110
+Run description: {'NITER': 100, 'name': 110, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run110_T75_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 75, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run110_T75_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run110_T75_NITER100_seed1/topicmodel 75 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run110_T75_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 09:08:38.931903
+Building the run queue
+Setting up iteration with T=75
+Setting up iteration with T=100
+Setting up iteration with T=150
+Setting up iteration with T=200
+Setting up iteration with T=300
+Starting run 110
+Run description: {'NITER': 100, 'name': 110, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run110_T75_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 75, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run110_T75_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run110_T75_NITER100_seed1/topicmodel 75 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run110_T75_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 09:49:45.932813
+end time: 2009-12-16 11:39:56.046254
+run duration: 6610 seconds
+Starting run 111
+Run description: {'NITER': 100, 'name': 111, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run111_T100_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 100, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run111_T100_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run111_T100_NITER100_seed1/topicmodel 100 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run111_T100_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 11:39:56.048678
+end time: 2009-12-16 13:55:26.973389
+run duration: 8130 seconds
+Starting run 112
+Run description: {'NITER': 100, 'name': 112, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run112_T150_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 150, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run112_T150_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run112_T150_NITER100_seed1/topicmodel 150 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run112_T150_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 13:55:26.975093
+end time: 2009-12-16 17:01:50.667204
+run duration: 11183 seconds
+Starting run 113
+Run description: {'NITER': 100, 'name': 113, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run113_T200_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 200, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run113_T200_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run113_T200_NITER100_seed1/topicmodel 200 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run113_T200_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 17:01:50.678750
+end time: 2009-12-16 20:57:58.385335
+run duration: 14167 seconds
+Starting run 114
+Run description: {'NITER': 100, 'name': 114, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run114_T300_NITER100_seed1/dp.txt', 'SEED': 1, 'T': 300, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run114_T300_NITER100_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run114_T300_NITER100_seed1/topicmodel 300 100 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run114_T300_NITER100_seed1/wp.txt'}
+start time: 2009-12-16 20:57:58.387026
+Building the run queue
+Setting up iteration with T=5
+Setting up iteration with T=10
+Setting up iteration with T=15
+Setting up iteration with T=20
+Setting up iteration with T=30
+Starting run 301
+Run description: {'NITER': 50, 'name': 301, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run301_T5_NITER50_seed1/dp.txt', 'SEED': 1, 'T': 5, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run301_T5_NITER50_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run301_T5_NITER50_seed1/topicmodel 5 50 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run301_T5_NITER50_seed1/wp.txt'}
+start time: 2009-12-16 23:35:17.630224
+end time: 2009-12-16 23:49:26.755168
+run duration: 849 seconds
+Starting run 302
+Run description: {'NITER': 50, 'name': 302, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run302_T10_NITER50_seed1/dp.txt', 'SEED': 1, 'T': 10, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run302_T10_NITER50_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run302_T10_NITER50_seed1/topicmodel 10 50 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run302_T10_NITER50_seed1/wp.txt'}
+start time: 2009-12-16 23:49:26.757479
+end time: 2009-12-17 00:07:36.621182
+run duration: 1089 seconds
+Starting run 303
+Run description: {'NITER': 50, 'name': 303, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run303_T15_NITER50_seed1/dp.txt', 'SEED': 1, 'T': 15, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run303_T15_NITER50_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run303_T15_NITER50_seed1/topicmodel 15 50 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run303_T15_NITER50_seed1/wp.txt'}
+start time: 2009-12-17 00:07:36.622833
+end time: 2009-12-17 00:29:28.078992
+run duration: 1311 seconds
+Starting run 304
+Run description: {'NITER': 50, 'name': 304, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run304_T20_NITER50_seed1/dp.txt', 'SEED': 1, 'T': 20, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run304_T20_NITER50_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run304_T20_NITER50_seed1/topicmodel 20 50 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run304_T20_NITER50_seed1/wp.txt'}
+start time: 2009-12-17 00:29:28.080692
+end time: 2009-12-17 00:54:04.899777
+run duration: 1476 seconds
+Starting run 305
+Run description: {'NITER': 50, 'name': 305, 'dpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run305_T30_NITER50_seed1/dp.txt', 'SEED': 1, 'T': 30, 'rundir': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run305_T30_NITER50_seed1', 'runcommand': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run305_T30_NITER50_seed1/topicmodel 30 50 1', 'wpfile': '/Users/ivan/Homes/master/Documents/Projects/arXivLDA/data/runs/run305_T30_NITER50_seed1/wp.txt'}
+start time: 2009-12-17 00:54:04.901476
+end time: 2009-12-17 01:24:49.105301
+run duration: 1844 seconds

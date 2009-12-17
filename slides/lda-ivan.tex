@@ -1,0 +1,364 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyvrb,color}
+
+
+% to remove after QC talk
+\input{Qcircuit.tex}
+
+\newcommand{\nc}{\newcommand}
+\nc{\rnc}{\renewcommand}
+\nc{\beq}{\begin{equation}}
+\nc{\eeq}{{\end{equation}}}
+%\nc{\bea}{\begin{eqnarray}}
+%\nc{\eea}{\end{eqnarray}}
+\nc{\beqa}{\begin{eqnarray}}
+\nc{\eeqa}{\end{eqnarray}} \nc{\lbar}[1]{\overline{#1}}
+%\nc{\bra}[1]{\langle#1|} \nc{\ket}[1]{|#1\rangle}
+\nc{\ketbra}[2]{|#1\rangle\!\langle#2|}
+%\nc{\braket}[2]{\langle#1|#2\rangle}
+\nc{\proj}[1]{|#1\rangle\!\langle #1 |}
+\nc{\avg}[1]{\langle#1\rangle}
+\rnc{\max}{\operatorname{max}}
+\nc{\rank}{\operatorname{rank}}
+\nc{\conv}{\operatorname{conv}}
+\nc{\smfrac}[2]{\mbox{$\frac{#1}{#2}$}}
+\nc{\Tr}{\operatorname{Tr}}
+\nc{\ox}{\otimes}
+\nc{\dg}{\dagger}
+\nc{\dn}{\downarrow} \nc{\cA}{{\cal A}} \nc{\cB}{{\cal B}}
+\nc{\cC}{{\cal C}} \nc{\cD}{{\cal D}} \nc{\cE}{{\cal E}}
+\nc{\cF}{{\cal F}} \nc{\cG}{{\cal G}} \nc{\cH}{{\cal H}}
+\nc{\cI}{{\cal I}} \nc{\cJ}{{\cal J}} \nc{\cK}{{\cal K}}
+\nc{\cL}{{\cal L}} \nc{\cM}{{\cal M}} \nc{\cN}{{\cal N}}
+\nc{\cO}{{\cal O}} \nc{\cP}{{\cal P}} \nc{\cR}{{\cal R}}
+\nc{\cS}{{\cal S}} \nc{\cT}{{\cal T}} \nc{\cU}{{\cal U}}
+\nc{\cX}{{\cal X}} \nc{\cW}{{\cal W}} \nc{\cZ}{{\cal Z}}
+\nc{\csupp}{{\operatorname{csupp}}}
+\nc{\qsupp}{{\operatorname{qsupp}}}
+%\nc{\var}{\operatorname{var}}
+\nc{\rar}{\rightarrow} \nc{\lrar}{\longrightarrow}
+\nc{\poly}{\operatorname{poly}}
+\nc{\polylog}{\operatorname{polylog}}
+\nc{\Lip}{\operatorname{Lip}} %\nc{\1}{\openone}
+
+\def\>{\rangle}
+\def\<{\langle}
+
+
+
+\newcommand{\EE}{{{\mathbb E}}}
+\newcommand{\var}{\operatorname{var}}
+\def\ph{\varphi}
+
+
+
+%   \def\a{\alpha}
+%   \def\b{\beta}
+%   \def\g{\gamma}
+%   \def\d{\delta}
+\def\e{\epsilon}
+%   \def\ve{\varepsilon}
+%   \def\z{\zeta}
+%   \def\h{\eta}
+%   \def\t{\theta}
+%   %\def\i{\iota}
+%   \def\k{\kappa}
+%   \def\l{\lambda}
+%   %\def\m{\mu}
+%   %\def\n{\nu}
+%   \def\x{\xi}
+%   \def\p{\pi}
+%   \def\r{\rho}
+%   \def\s{\sigma}
+\def\ta{\tau}
+%   \def\u{\upsilon}
+\def\ph{\varphi}
+%   \def\c{\chi}
+\def\ps{\psi}
+%   \def\o{\omega}
+
+\def\G{\Gamma}
+\def\D{\Delta}
+\def\T{\Theta}
+%\def\L{\Lambda}
+\def\X{\Xi}
+\def\S{\Sigma}
+\def\U{\Upsilon}
+\def\Ph{\Phi}
+\def\Ps{\Psi}
+\def\O{\Omega}
+
+\nc{\glneq}{{\raisebox{0.6ex}{$>$}  \hspace*{-1.8ex} \raisebox{-0.6ex}{$<$}}}
+\nc{\gleq}{{\raisebox{0.6ex}{$\geq$}\hspace*{-1.8ex} \raisebox{-0.6ex}{$\leq$}}}
+
+\nc{\RR}{{{\mathbb R}}}
+\nc{\CC}{{{\mathbb C}}}
+\nc{\FF}{{{\mathbb F}}}
+\nc{\HH}{{{\mathbb H}}}
+\nc{\NN}{{{\mathbb N}}}
+\nc{\ZZ}{{{\mathbb Z}}}
+\nc{\PP}{{{\mathbb P}}}
+\nc{\QQ}{{{\mathbb Q}}}
+\nc{\UU}{{{\mathbb U}}}
+\nc{\WW}{{{\mathbb W}}}
+%\nc{\EE}{{{\mathbb E}}}
+\rnc{\SS}{{{\mathbb S}}}
+\nc{\id}{{\operatorname{id}}}
+
+\nc{\vholder}[1]{\rule{0pt}{#1}}
+
+% switching between |i> or |e_i> for the standard basis
+% \nc{\ob}[1]{e_{#1}}
+\nc{\ob}[1]{#1}
+
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+
+\nc{\eq}[1]{Eq.~(\ref{eq:#1})} \nc{\eqs}[2]{Eqs.~(\ref{eq:#1}) and
+(\ref{eq:#2})}
+
+\nc{\eqn}[1]{Eq.~(\ref{eqn:#1})}
+\nc{\eqns}[2]{Eqs.~(\ref{eqn:#1}) and (\ref{eqn:#2})}
+
+\nc{\region}{\cS\cW}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%% MATH SETS %%%%%%%%%%%%%%
+\def \Tr{\textup{Tr}}
+\def \c{\mathbb{C}}
+\def \z{\mathbb{Z}}
+\def \r{\mathbb{R}}
+\def \n{\mathbb{N}}
+\def \p{\mathbb{P}}
+\def \q{\mathbb{Q}}
+\def \calH{ \ensuremath{ \cal H } }
+
+%\newcommand{\h}[1]{\overline{#1}}
+%\renewcommand{\H}[1]{\overline{#1}}
+%\renewcommand{\j}[1]{ \widehat{#1}}
+
+
+
+
+
+%%% QUANTUM STUFF  %%%%%%%%%%%%%%
+\renewcommand{\ket}[1]{\left\vert #1 \right\rangle}
+\renewcommand{\bra}[1]{\left\langle #1 \right\vert}
+\newcommand{\braket}[2]{\left\langle #1\vert#2 \right\rangle}
+\newcommand{\braOket}[3]{\left\langle #1\vert#2\vert#3 \right\rangle}
+\newcommand{\samekb}[1]{\ket{#1}\bra{#1}}
+%\newcommand{\e}{  \ensuremath{\mathcal E} }
+%\newcommand{\x}{  \ensuremath{\mathcal X} }
+\newcommand{\m}{  \ensuremath{\mathcal M} }
+\newcommand{\K}{  \ensuremath{\mathcal K} }
+\newcommand{\Q}{  \ensuremath{\mathcal Q} }
+\newcommand{\Pp}{  \ensuremath{\mathcal P} }
+\newcommand{\Ww}{  \ensuremath{\mathcal W} }
+\newcommand{\qq}{  \ensuremath{\vec{q}} }
+\newcommand{\Kbar}{{  \ensuremath{ \bar{ {\mathcal K} } }   }}
+%\renewcommand{\L}{  \ensuremath{\mathcal L} }
+%\newcommand{\cL}{  \ensuremath{\mathcal L} }
+\newcommand{\Lbar}{{  \ensuremath{ \bar{ {\mathcal L} } }   }}
+\newcommand{\otimesc}{\negthickspace\otimes\negthickspace}  %close verison of \otimes
+
+\newcommand{\Esq}{\ensuremath{E_\text{sq}} }
+\newcommand{\Esqt}{\ensuremath{\widetilde{E}_\text{sq}} }
+\newcommand{\rhot}{{\ensuremath{\tilde{\rho}}}}
+\newcommand{\sigmat}{{\ensuremath{\tilde{\sigma}}}}
+\newcommand{\taut}{{\ensuremath{\tilde{\tau}}}}
+
+
+%\newcommand{\boxedeqn}[1]{%
+%  \[\fbox{%
+%      \addtolength{\linewidth}{-2\fboxsep}%
+%      \addtolength{\linewidth}{-2\fboxrule}%
+%      \begin{minipage}{\linewidth}%
+%      \begin{equation}#1\end{equation}%
+%      \end{minipage}%
+%    }\]%
+%}
+
+
+%%% USEFUL SHORTHANDS %%%%%%%%%%%%%%
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bs}{\begin{split}}
+\newcommand{\es}{\end{split}}
+\renewcommand{\neg}{\mbox{-}}
+\newcommand{\XX}{X_1;\ldots;X_m}
+\newcommand{\XcX}{X_1,\ldots,X_m}
+\newcommand{\E}{   {\cal E} }
+
+
+% new stuff from January
+%\newcommand{\Jformation}{ Multiparty Information }
+\newcommand{\oli}{\overline}
+
+
+
+
+%%% COMMENTS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\comment}[1]{[\textit{#1}]}
+%\usepackage{trackchanges}      %   wikid cool package to track changes in LaTeX with a python script to accept/reject
+                                %   Ideas:  1. Can we autogenerate this sintax with diff?
+                                %           2. Upgrade to marginpar environment as package option
+
+% from http://www.f.kth.se/~ante/latex.php
+%\setlength{\marginparpush}{0.5cm}
+%\setlength{\marginparwidth}{1.2in}
+%\let\oldmarginpar\marginpar
+%\renewcommand\marginpar[1]{ \-\oldmarginpar[\raggedleft\footnotesize #1]{\raggedright\footnotesize #1}}
+%
+%% input above a paragraph  and it will go in the sidemargin
+%% in the future we could give some size parameter to decide how far down the side we should put it
+%% and maybe add an accolade
+%\newcommand\pcomment[1]{\marginpar{#1}}
+%
+%% at the end of the line ... (identical to pcomment)
+%\newcommand\lcomment[1]{\marginpar{#1}}
+%
+%% word comment (right after the word in brakets)
+%\newcommand\wcomment[1]{\comment{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newcommand{\beas}{\begin{eqnarray*}}
+\newcommand{\eeas}{\end{eqnarray*}}
+
+
+% accolade for inside figures
+\newcommand{\akld}{\left\{ \begin{array}{c} \ \\ \ \\ \ \\ \ \\ \end{array}\right.}
+\newcommand{\Akld}{\left\{ \begin{array}{c} \ \\ \ \\ \ \\ \ \\ \ \\ \ \\ \ \\ \end{array}\right.}
+
+
+\newcommand{\myparagraph}[1]{\noindent{\bf #1}$\quad$}
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\def\PY@tok@nl{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@nc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\def\PY@tok@ne{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@si{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@kc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@err{\def\PY@bc##1{\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{##1}}}
+\def\PY@tok@kd{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@kn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@gp{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@o{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@kr{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\def\PY@tok@ow{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@k{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@se{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\def\PY@tok@sd{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+\usetheme{Antibes}
+%\setbeamertemplate{footline}[frame number]
+%\usecolortheme{lily}
+%\beamertemplateshadingbackground{blue!5}{yellow!10}
+\definecolor{DjangoDarkestGreen}{RGB}{11,36,37} %0b2e25
+\definecolor{DjangoLightGreen}{RGB}{147, 203, 61}
+\definecolor{DjangoDarkerGreen}{RGB}{37,79,49}
+\definecolor{DjangoDarkGreen}{RGB}{52,99,65}
+\definecolor{DjangoGreen}{RGB}{74,119,87}
+
+\setbeamercolor*{palette primary}{fg=white,bg=DjangoGreen}
+\setbeamercolor*{palette secondary}{fg=white,bg=DjangoDarkGreen}
+\setbeamercolor*{palette tertiary}{fg=white,bg=DjangoLightGreen}
+\setbeamercolor*{palette quaternary}{fg=white,bg=DjangoDarkestGreen}
+\setbeamercolor*{titlelike}{bg=DjangoGreen}
+\setbeamercolor*{frametitle}{fg=DjangoDarkestGreen,bg=white}
+\setbeamercolor*{part title}{bg=white,fg=DjangoGreen}
+\setbeamercolor*{item}{fg=DjangoDarkGreen}
+
+\title[LDA]{Latent Dirichlet Allocation}
+\author{Ivan Savov \\ \texttt{ivan.savov@gmail.com} }
+\institute{McGill CS}
+\date{Dec 16th, 2009}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{LDA}
+\subsection{LDA}
+\frame {
+	\frametitle{Introduction}
+	\begin{itemize}
+	\item What is a quantum computer?
+	\item Does it exist? \ \\ \ \\
+	\item Some preliminaries
+	\begin{itemize}
+	\item crypto
+	\item quantum mechanics
+	\end{itemize}
+	\end{itemize}
+}
+\end{document}

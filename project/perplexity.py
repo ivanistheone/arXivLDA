@@ -2,7 +2,7 @@
 from mylibs import argparse
 import sys,os
 #import tarfile
-import shutil 
+import shutil
 
 try:
     import json as simplejson
@@ -48,7 +48,7 @@ def get_probs(RUN_DIR):
         out of a RUN_DIR/wp.txt and RUN_DIR/dp.txt """
 
 
-    wp = loadsparsemat(RUN_DIR + "wp.txt")
+    wp = loadsparsemat(RUN_DIR + "wp.txt") +0.01
     #wp = wp + 0.01
 
     W,T = wp.shape
@@ -68,15 +68,9 @@ def get_probs(RUN_DIR):
 
     fac = 1/sum(dp,1)
 
-    print "fac shapre", fac.shape
-    print "W, T, D ", W, T, D
-    print "dp shape", dp.shape
-    print "wp shape", wp.shape
-
 
     for t in arange(0,T):
         dp[:,t]=dp[:,t]*fac
-        print "t is", t
 
     prob_t_given_d = dp.transpose()
 
@@ -142,7 +136,7 @@ def calculate_perplexity(d_w_cnt, prob_w_given_t, prob_t_given_d):
 
 
 
-    
+
 
 
 
@@ -166,13 +160,12 @@ if __name__ == '__main__':
     # assume they are all the same :)
     dwpath = RUN_ROOT+"share/"
     d_w_cnt = get_d_w_cnt(dwpath)
-    
 
-    flag=True
+
 
 
     for result in args.jsonfiles:
-        
+
         # load run dict
         run = simplejson.load(open(result,'r'))
 
@@ -186,13 +179,11 @@ if __name__ == '__main__':
 
         pplex = calculate_perplexity(d_w_cnt, prob_w_given_t, prob_t_given_d)
 
-        print "experiment ", run["name"] 
+        print "experiment ", run["name"]
         print "#ITER=", run["NITER"], "  T= ",T, "pplex=", pplex
 
 
         # store it back into place
         run["perplexity"]=pplex
-        if flag:
-            simplejson.dump(run, open("mytmprun.json","w"))
-            flag=False
+        simplejson.dump(run, open(result,"w"))
 

@@ -1,0 +1,7 @@
+\[
+\Qcircuit @C=.7em @R=.4em @! {
+    \lstick{\ket{\psi}} & \qw & \qw & \ctrl{1} & \gate{H} & \meter & \control \cw\\
+    \lstick{\ket{0}} & \qw & \targ & \targ & \qw & \meter & \cwx\\
+    \lstick{\ket{0}} & \gate{H} & \ctrl{-1} & \qw & \qw & \gate{X} \cwx & \gate{Z} \cwx & \rstick{\ket{\psi}} \qw
+}
+\]

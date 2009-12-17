@@ -1,0 +1,6 @@
+
+\[ \Qcircuit @C=1em @R=.7em {
+      \lstick{\ket{control}} & \ctrl{1} &  \qw \\
+      \lstick{\ket{target}}  & \targ &  \qw
+}\]
+

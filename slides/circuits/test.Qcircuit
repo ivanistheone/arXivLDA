@@ -1,0 +1,8 @@
+\[
+\Qcircuit @C=1em @R=.7em {
+   \lstick{\bigcup_{i}^m C_i}           & \multigate{1}{D}      & \qw &
+   \rstick{\widehat{A}_1\cdots\widehat{A}_m \quad \leftarrow\text{near-purification of $R$}} \qw \\
+  \lstick{ \ket{0}}    & \ghost{D}   & \qw & \rstick{W_C \qquad\qquad \!\!\!\leftarrow\text{Charlie's waste}} \qw
+}
+\]
+

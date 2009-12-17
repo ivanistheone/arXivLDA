@@ -1,0 +1,5 @@
+\[
+\Qcircuit @C=1em @R=.7em { & \gate{H} & \qw
+}
+\]
+

@@ -1,0 +1,3 @@
+\beamer@endinputifotherversion {3.07pt}
+\beamer@sectionintoc {1}{LDA}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{LDA}{2}{0}{1}

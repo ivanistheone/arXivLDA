@@ -1,0 +1,20 @@
+
+metas:
+  title: Latent Dirichlet Allocation
+  short_title: LDA
+  author: Ivan Savov
+  email: ivan.savov@gmail.com
+  institute: McGill CS
+  date: Dec 16th, 2009
+  outline: False
+  outline_name: Contents
+
+
+LDA:
+  LDA:
+    Introduction:
+      - What is a quantum computer?
+      - Does it exist? \ \\ \ \\
+      - Some preliminaries:
+        - crypto
+        - quantum mechanics
