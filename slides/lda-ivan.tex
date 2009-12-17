@@ -350,15 +350,52 @@
 \section{LDA}
 \subsection{LDA}
 \frame {
-	\frametitle{Introduction}
+	\frametitle{Topic models}
 	\begin{itemize}
-	\item What is a quantum computer?
-	\item Does it exist? \ \\ \ \\
-	\item Some preliminaries
-	\begin{itemize}
-	\item crypto
-	\item quantum mechanics
+	\item Extract topics from documents
+	\item Unsupervised method
+	\item Documents as bags of words
+	\item Blei, Ng, Jordan 2003
 	\end{itemize}
+}
+\frame {
+	\frametitle{Latent Dirichlet Allocation}
+	\begin{itemize}
+	\item \includegraphics{lda-diagram.png}
+	\item $\input{ldaeq.tex}$
+	\end{itemize}
+}
+\frame {
+	\frametitle{Inference method}
+	\begin{itemize}
+	\item Gibbs sampling
+	\item Have to learn two distributions
+	\begin{itemize}
+	\item $\varphi$ words-given-topics
+	\item $\theta$  topics-given-documents
+	\end{itemize}
+	\item Efficient (couple of hours per run)
+	\end{itemize}
+}
+\frame {
+	\frametitle{Data set}
+	\begin{itemize}
+	\item science papers from arXiv.org quant-ph
+	\item 20000 documents
+	\item 10000 words in vocabulary
+	\item 40 000 000 words in total
+	\item preprocessing...
+	\item Dave Newman \texttt{topicmodel} code
+	\end{itemize}
+}
+\frame {
+	\frametitle{Example results}
+	\begin{itemize}
+	\item \small t1 operator space operators let matrix set form case states function theorem defined functions dimensional general hilbert representation positive equation follows section product vector group ...
+	\item t2 quantum time theory particle classical mechanics measurement state probability physical particles physics wave space equation spin momentum model function point position systems possible evolution
+	\item t3 quantum state qubit qubits error number computation algorithm gate probability classical time gates spin computer unitary problem operation control operations single basis log code ...
+	\item t4 phys field rev fig time phase energy state atom function lett atoms potential frequency cavity order case interaction photon atomic coupling wave cos hamiltonian ...
+	\item t5 state states entanglement quantum phys information rev entangled measurement alice bob lett photon channel pure protocol local probability entropy bell case key measurements quant ...
 	\end{itemize}
 }
 \end{document}

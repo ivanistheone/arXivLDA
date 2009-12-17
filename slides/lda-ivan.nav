@@ -7,8 +7,16 @@
 \headcommand {\beamer@subsectionentry {0}{1}{1}{2}{LDA}}\headcommand {\beamer@subsectionpages {2}{1}}
 \headcommand {\slideentry {1}{1}{1}{2/2}{LDA}{0}}
 \headcommand {\beamer@framepages {2}{2}}
-\headcommand {\beamer@partpages {1}{2}}
-\headcommand {\beamer@subsectionpages {2}{2}}
-\headcommand {\beamer@sectionpages {2}{2}}
-\headcommand {\beamer@documentpages {2}}
-\headcommand {\def \inserttotalframenumber {2}}
+\headcommand {\slideentry {1}{1}{2}{3/3}{LDA}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{1}{3}{4/4}{LDA}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {1}{1}{4}{5/5}{LDA}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {1}{1}{5}{6/6}{LDA}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@partpages {1}{6}}
+\headcommand {\beamer@subsectionpages {2}{6}}
+\headcommand {\beamer@sectionpages {2}{6}}
+\headcommand {\beamer@documentpages {6}}
+\headcommand {\def \inserttotalframenumber {6}}

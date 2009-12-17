@@ -12,9 +12,33 @@ metas:
 
 LDA:
   LDA:
-    Introduction:
-      - What is a quantum computer?
-      - Does it exist? \ \\ \ \\
-      - Some preliminaries:
-        - crypto
-        - quantum mechanics
+    Topic models:
+      - Extract topics from documents
+      - Unsupervised method
+      - Documents as bags of words
+      - Blei, Ng, Jordan 2003
+#    image lda-diagram.png:
+    Latent Dirichlet Allocation:
+      - \includegraphics{lda-diagram.png}
+      - $\input{ldaeq.tex}$
+    Inference method:
+      - Gibbs sampling
+      - Have to learn two distributions:
+        - $\varphi$ words-given-topics
+        - $\theta$  topics-given-documents
+      - Efficient (couple of hours per run)
+    Data set:
+      - science papers from arXiv.org quant-ph
+      - 20000 documents
+      - 10000 words in vocabulary
+      - 40 000 000 words in total
+      - preprocessing...
+      - Dave Newman \texttt{topicmodel} code 
+    Example results:
+      - \small t1 operator space operators let matrix set form case states function theorem defined functions dimensional general hilbert representation positive equation follows section product vector group ...
+      - t2 quantum time theory particle classical mechanics measurement state probability physical particles physics wave space equation spin momentum model function point position systems possible evolution
+      - t3 quantum state qubit qubits error number computation algorithm gate probability classical time gates spin computer unitary problem operation control operations single basis log code ...
+      - t4 phys field rev fig time phase energy state atom function lett atoms potential frequency cavity order case interaction photon atomic coupling wave cos hamiltonian ...
+      - t5 state states entanglement quantum phys information rev entangled measurement alice bob lett photon channel pure protocol local probability entropy bell case key measurements quant ...
+
+
