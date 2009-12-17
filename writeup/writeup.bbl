@@ -1,4 +1,9 @@
-\begin{thebibliography}{TNW07}
+\begin{thebibliography}{NASW07}
+
+\bibitem[And]{AndrzejeCode}
+David Andrzejewski.
+\newblock {Latent Dirichlet Allocation via Collapsed Variational Inference}.
+\newblock {\em http://pages.cs.wisc.edu/~andrzeje/research/cvb\_lda.html}.
 
 \bibitem[AWST]{Teh2009}
 A.~Asuncion, M.~Welling, P.~Smyth, and Y.W. Teh.
@@ -21,11 +26,51 @@ T.L. Griffiths and M.~Steyvers.
 \newblock {\em Proceedings of the National Academy of Sciences}, 101(Suppl
   1):5228, 2004.
 
+\bibitem[Hei05]{heinrich2005parameter}
+G.~Heinrich.
+\newblock {Parameter estimation for text analysis}.
+\newblock {\em Web: http://www.arbylon.net/publications/text-est.pdf}, 2005.
+
+\bibitem[MHSO09]{masada2009accelerating}
+T.~Masada, T.~Hamada, Y.~Shibata, and K.~Oguri.
+\newblock {Accelerating Collapsed Variational Bayesian Inference for Latent
+  Dirichlet Allocation with Nvidia CUDA Compatible Devices}.
+\newblock In {\em Proceedings of the 22nd International Conference on
+  Industrial, Engineering and Other Applications of Applied Intelligent
+  Systems: Next-Generation Applied Intelligence}, page 500. Springer, 2009.
+
+\bibitem[NASW07]{newman2007distributed}
+D.~Newman, A.~Asuncion, P.~Smyth, and M.~Welling.
+\newblock {Distributed inference for latent dirichlet allocation}.
+\newblock {\em Advances in Neural Information Processing Systems},
+  20:1081--1088, 2007.
+
+\bibitem[New]{NewmanCode}
+David Newman.
+\newblock {Topic modeling scripts and code}.
+\newblock {\em http://www.ics.uci.edu/~newman/code/topicmodel/}.
+
+\bibitem[NSS06]{newman2006scalable}
+D.~Newman, P.~Smyth, and M.~Steyvers.
+\newblock {Scalable Parallel Topic Models}.
+\newblock {\em Journal of Intelligence Community Research and Development},
+  2006.
+
+\bibitem[Sav]{IvanCode}
+Ivan Savov.
+\newblock Lda for scientific topics extraction.
+\newblock {\em Web: http://github.com/ivanistheone/arXivLDA/}.
+
 \bibitem[TNW07]{Teh2007}
 Y.W. Teh, D.~Newman, and M.~Welling.
 \newblock {A collapsed variational bayesian inference algorithm for latent
   dirichlet allocation}.
 \newblock {\em Advances in neural information processing systems}, 19:1353,
   2007.
+
+\bibitem[YBQ]{yan-parallel}
+F.~Yan, PR~Beijing, and Y.A. Qi.
+\newblock {Parallel Inference for Latent Dirichlet Allocation on Graphics
+  Processing Units}.
 
 \end{thebibliography}

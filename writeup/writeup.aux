@@ -3,36 +3,60 @@
 \citation{Blei2009}
 \citation{Blei2003}
 \citation{griffiths2004finding}
+\citation{Blei2003}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}The model}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  The graphical model behind LDA. $\theta $ is the distribution of topics for a document, $\beta $ is the distribution of words for a given topic.}}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}The inference algorithm}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}The data set}{2}}
-\newlabel{section:data-set}{{4}{2}}
-\citation{Blei2009}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Textual pre-processing}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Dictionary selection}{3}}
-\citation{Blei2003}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  The graphical model behind LDA. $\theta $ is the distribution of topics for a document, $\varphi $ is the distribution of words for a given topic.}}{2}}
+\newlabel{fig:lda}{{1}{2}}
 \citation{Teh2009}
 \citation{Teh2007}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Sparse matrix format}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{4}}
-\newlabel{section:results}{{5}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Informal evaluation of extracted topics}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Number of topics}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Gibbs sampling chain length}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion and future work}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Regular expressions}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Two data set correlations}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}This paper covers}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}CUDA }{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Citaiton graph}{5}}
+\citation{AndrzejeCode}
+\citation{griffiths2004finding}
+\citation{NewmanCode}
+\@writefile{toc}{\contentsline {section}{\numberline {3}The inference algorithm}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}The data set}{4}}
+\newlabel{section:data-set}{{4}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Textual pre-processing}{4}}
+\citation{Blei2009}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Dictionary selection}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Sparse matrix format}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{5}}
+\newlabel{section:results}{{5}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Evaluation of extracted topics}{5}}
+\citation{heinrich2005parameter}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Number of topics}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Gibbs sampling chain length}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Perplexity}{6}}
+\citation{newman2006scalable}
+\citation{newman2007distributed}
+\citation{masada2009accelerating}
+\citation{yan-parallel}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion and Conclusion}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Regular expressions counts}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Two data set correlations}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Parallel LDA}{7}}
+\citation{IvanCode}
 \bibstyle{alpha}
 \bibdata{arXivLDA}
+\bibcite{AndrzejeCode}{And}
 \bibcite{Teh2009}{AWST}
 \bibcite{Blei2009}{BL09}
 \bibcite{Blei2003}{BNJ03}
 \bibcite{griffiths2004finding}{GS04}
+\bibcite{heinrich2005parameter}{Hei05}
+\bibcite{masada2009accelerating}{MHSO09}
+\bibcite{newman2007distributed}{NASW07}
+\bibcite{NewmanCode}{New}
+\bibcite{newman2006scalable}{NSS06}
+\bibcite{IvanCode}{Sav}
 \bibcite{Teh2007}{TNW07}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Metadata}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{6}}
+\bibcite{yan-parallel}{YBQ}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Citation graph}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Automatically extracted topics.}}{9}}
+\newlabel{table:topics}{{1}{9}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Runtime as a function of number of topics.}}{10}}
+\newlabel{table:runtimeT}{{2}{10}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Runtime as a function of length of Gibbs sampling.}}{10}}
+\newlabel{table:runtimeNITER}{{3}{10}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Perplexity as a function of T. $NITER=50$}}{10}}
+\newlabel{table:perplexities}{{4}{10}}
