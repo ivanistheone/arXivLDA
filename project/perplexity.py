@@ -49,6 +49,8 @@ def get_probs(RUN_DIR):
 
 
     wp = loadsparsemat(RUN_DIR + "wp.txt")
+    #wp = wp + 0.01
+
     W,T = wp.shape
 
     prob_w_given_t = dot(wp, diag(1/sum(wp,0))  )
@@ -65,8 +67,16 @@ def get_probs(RUN_DIR):
     D=dp.shape[0]
 
     fac = 1/sum(dp,1)
-    for t in arange(0,30):
+
+    print "fac shapre", fac.shape
+    print "W, T, D ", W, T, D
+    print "dp shape", dp.shape
+    print "wp shape", wp.shape
+
+
+    for t in arange(0,T):
         dp[:,t]=dp[:,t]*fac
+        print "t is", t
 
     prob_t_given_d = dp.transpose()
 
