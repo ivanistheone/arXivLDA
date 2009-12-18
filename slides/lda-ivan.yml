@@ -12,33 +12,64 @@ metas:
 
 LDA:
   LDA:
-    Topic models:
-      - Extract topics from documents
+    Latent Dirichlet Allocation:
+      - Blei, Ng, Jordan 2003
+      - Extract multiple topics from documents
       - Unsupervised method
       - Documents as bags of words
-      - Blei, Ng, Jordan 2003
 #    image lda-diagram.png:
-    Latent Dirichlet Allocation:
+    The model:
       - \includegraphics{lda-diagram.png}
       - $\input{ldaeq.tex}$
     Inference method:
       - Gibbs sampling
-      - Have to learn two distributions:
-        - $\varphi$ words-given-topics
-        - $\theta$  topics-given-documents
-      - Efficient (couple of hours per run)
+      - Want to learn two probability distributions:
+        - $\varphi(w|t)$ words-given-topic
+        - $\theta(t|d)$  topics-given-document 
+      - Efficient
+      - Updates involve word count aggregates
+      - Guarantee on convergence?
     Data set:
       - science papers from arXiv.org quant-ph
-      - 20000 documents
-      - 10000 words in vocabulary
-      - 40 000 000 words in total
       - preprocessing...
+      - D=20000 documents
+      - W=10000 words in vocabulary
+      - N=40 000 000 words in corpus
       - Dave Newman \texttt{topicmodel} code 
-    Example results:
-      - \small t1 operator space operators let matrix set form case states function theorem defined functions dimensional general hilbert representation positive equation follows section product vector group ...
-      - t2 quantum time theory particle classical mechanics measurement state probability physical particles physics wave space equation spin momentum model function point position systems possible evolution
-      - t3 quantum state qubit qubits error number computation algorithm gate probability classical time gates spin computer unitary problem operation control operations single basis log code ...
-      - t4 phys field rev fig time phase energy state atom function lett atoms potential frequency cavity order case interaction photon atomic coupling wave cos hamiltonian ...
-      - t5 state states entanglement quantum phys information rev entangled measurement alice bob lett photon channel pure protocol local probability entropy bell case key measurements quant ...
+    Results 1 (top words in topics):
+      - T=200, NITER=50 \small
+      - (t86) key bob alice eve security protocol secret attack secure bits bit information ...
+      - (t175) alice bob protocol communication protocols bit bobs alices commitment shared party sends ...
+      - (t10) entropy von neumann log information mutual shannon entropies measure theory relative defined ...
+      - (t131) quantum physics vol review physical arxiv letters press university http quant york ...
+      - (t200) theory universe physics nature brain reality experience consciousness matter science human conscious ...
+    Results 2:
+      - runtime between 10 mins and 4 hours depends on:
+        - number of Gibbs iterations NITER
+        - number of topics T
+      - memory usage between 700MB and 900MB
+      - perplexity:  
+        - $pplex(\mathcal{D}) = exp\left( - \frac{1}{N} \sum \log p(w|d) \right)$ 
+      - perplexity decreases with more topics
+      - perplexity does not decrease after NITER 50 
+    Future work:
+      - combine results from different runs:
+        - subtopics
+        - correspondances \\ \ \\
+      - recommender system \\ \ \\
+      - combine with citation information
+    References:
+      - D.M. Blei, A.Y. Ng, and M.I. Jordan. Latent dirichlet allocation. The Journal of Machine Learning Research, 3 993–1022, 2003.
+      - T.L. Griffiths and M. Steyvers. Finding scientific topics. Proceedings of the National Academy of Sciences, 101 (Suppl 1) 5228, 2004.
+      - A. Asuncion, M. Welling, P. Smyth, and Y.W. Teh. On Smoothing and Inference for Topic Models. ICML2009.
+      - source code --  http//github.com/ivanistheone/arXivLDA/
+
+
+
+#      - \small t1 operator space operators let matrix set form case states function theorem defined functions dimensional general hilbert representation positive equation follows section product vector group ...
+#      - t2 quantum time theory particle classical mechanics measurement state probability physical particles physics wave space equation spin momentum model function point position systems possible evolution
+#      - t3 quantum state qubit qubits error number computation algorithm gate probability classical time gates spin computer unitary problem operation control operations single basis log code ...
+#      - t4 phys field rev fig time phase energy state atom function lett atoms potential frequency cavity order case interaction photon atomic coupling wave cos hamiltonian ...
+#      - t5 state states entanglement quantum phys information rev entangled measurement alice bob lett photon channel pure protocol local probability entropy bell case key measurements quant ...
 
 
