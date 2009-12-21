@@ -1,0 +1,72 @@
+
+
+Keeping it simple
+=================
+
+It would be best to package the LDA funcitons and wrappers as the liblda,
+but it is important to have an application in mind. The best candidate
+for this right now is "autotagging" with the following intended workflow:
+
+First run:
+
+    1/  Developer prepares an instance of LDADocument and LDADocumentColleciton
+        which have an api in style get_document, get_documents etc.
+    2/  Automatically extract the Vocabulary OR offer a way to input your own LDAVocabulary class
+    3/  Runs LDA (hyperparameters choice)
+        store PHI, THETA on the filesystem for later reuse
+    4/  Present results in a web form and ask for short description of each topic
+        allow multiple short descr
+        voting?
+        special reject buttons: "topic is too broad", "topic is too narrow"
+    5/  Output informaiton -- ex. back into a db, as filesystem attributes or something
+        ex1: back into db for a wordpress blog
+        ex2: django.contrib.tagging
+        ex3: mac os extended attributes for files, symlinks into categories?
+
+Subsequent runs:
+
+    1/  Generate the Phi_~m for the new documents
+    2/  Tag em
+
+How do I benefit from this?
+Create a repository where people can upload their Phi's ?
+Then use some sort of aggregation?
+Offer autotaggin service?
+
+
+
+
+
+Subcategories
+=============
+
+This would be the golden dream.
+    I(ti*tj , Ti)
+    approximation
+    subtopics
+
+
+
+
+Hyperparameters
+===============
+
+What is the importance of \alpha \beta ?
+
+
+
+
+
+TODO:
+=====
+
+Write the liblda
+decide on an api
+create class arXivDocument( LDADocument )
+2-3 days of infrastructure building
+try out class wikipediaDocument( LDADocument )
+
+
+
+
+
