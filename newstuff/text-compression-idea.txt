@@ -1,0 +1,7 @@
+
+Can we compress documents better with the probability distributions 
+over topics as side informaiton ?
+
+we choose the suffixes shorter for words more likely in a paper...
+
+
