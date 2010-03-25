@@ -1,4 +1,55 @@
 
+Name-it: webgame
+================
+reuse the image-tagging-as-a-game idea but with topic model
+user1 and user2 get presented with words from some topic
+and they have to give a "short description" in up to three 
+words that best sums up the words they see.
+(weight the word font sizes by their probability)
+
+if the users enter something that matches then "tag" is accepted,
+if not they keep entering new descriptionsÉ
+
+if nothing good comes out É maybe the topic model wasn't so good 
+and we should re-run the algorithm OR simply this is one of the
+mixed topics
+
+quick test on arXiv topics on physics people?
+mass-email after the conference....
+
+
+
+
+
+Usage scenario
+==============
+
+To redo the arXiv experiments, this is what I would do:
+ - create a dc = DirectoryListDC(["data/"], cachedir="data_dc_store") 
+        --> walks the tree creates a Document for each pdf
+        --> for each id = filepath
+ - run dc.wordcounts
+        --> for each pdf, it will convert to text do a wc 
+        --> store output in cachedir
+ - vocab=Vocab( dc, maxwords=10000, filters=["stopwords", "3lettermin"], minoccur=3 ...
+        --> will go through entire dc and make an aggregate wordcount list
+        --> 
+        --> applies filters
+        --> stores somewhere?
+ - Create the topic model
+    tm = TopicModel()
+    tm.fromDC(documents=dc, T=30, rundir="runs/run300", name?, vocab=vocab)
+        --> create rundir
+        --> symlink/copy vocab into rundir
+        --> iterate over dc and do w.r.t vocab
+        --> write out docwords.txt
+
+ - Run topic model:  tm.learn(method=ldalib.NewmanGibbs)
+        --> output will get stored in rundir ...
+
+
+
+
 
 Keeping it simple
 =================

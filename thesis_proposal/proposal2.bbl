@@ -1,0 +1,49 @@
+\begin{thebibliography}{NASW07}
+
+\bibitem[BL09]{Blei2009}
+D.~Blei and J.~Lafferty.
+\newblock {Topic models}.
+\newblock {\em Text Mining: Theory and Applications. Taylor and Francis,
+  London, UK}, 2009.
+
+\bibitem[BNJ03]{Blei2003}
+D.M. Blei, A.Y. Ng, and M.I. Jordan.
+\newblock {Latent dirichlet allocation}.
+\newblock {\em The Journal of Machine Learning Research}, 3:993--1022, 2003.
+
+\bibitem[MHSO09]{masada2009accelerating}
+T.~Masada, T.~Hamada, Y.~Shibata, and K.~Oguri.
+\newblock {Accelerating Collapsed Variational Bayesian Inference for Latent
+  Dirichlet Allocation with Nvidia CUDA Compatible Devices}.
+\newblock In {\em Proceedings of the 22nd International Conference on
+  Industrial, Engineering and Other Applications of Applied Intelligent
+  Systems: Next-Generation Applied Intelligence}, page 500. Springer, 2009.
+
+\bibitem[NASW07]{newman2007distributed}
+D.~Newman, A.~Asuncion, P.~Smyth, and M.~Welling.
+\newblock {Distributed inference for latent dirichlet allocation}.
+\newblock {\em Advances in Neural Information Processing Systems},
+  20:1081--1088, 2007.
+
+\bibitem[New]{NewmanCode}
+David Newman.
+\newblock {Topic modeling scripts and code}.
+\newblock {\em http://www.ics.uci.edu/~newman/code/topicmodel/}.
+
+\bibitem[NSS06]{newman2006scalable}
+D.~Newman, P.~Smyth, and M.~Steyvers.
+\newblock {Scalable Parallel Topic Models}.
+\newblock {\em Journal of Intelligence Community Research and Development},
+  2006.
+
+\bibitem[Sav]{IvanCode}
+Ivan Savov.
+\newblock Lda for scientific topics extraction.
+\newblock {\em Web: http://github.com/ivanistheone/arXivLDA/}.
+
+\bibitem[YBQ]{yan-parallel}
+F.~Yan, PR~Beijing, and Y.A. Qi.
+\newblock {Parallel Inference for Latent Dirichlet Allocation on Graphics
+  Processing Units}.
+
+\end{thebibliography}

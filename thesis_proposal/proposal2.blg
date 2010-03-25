@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.7)
+The top-level auxiliary file: proposal2.aux
+The style file: alpha.bst
+Database file #1: arXivLDA.bib
+Warning--empty year in NewmanCode
+Warning--empty year in IvanCode
+Warning--empty journal in yan-parallel
+Warning--empty year in yan-parallel
+You've used 8 entries,
+            2543 wiz_defined-function locations,
+            604 strings with 5823 characters,
+and the built_in function-call counts, 3088 in all, are:
+= -- 302
+> -- 172
+< -- 3
++ -- 61
+- -- 61
+* -- 219
+:= -- 539
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 53
+chr.to.int$ -- 8
+cite$ -- 12
+duplicate$ -- 119
+empty$ -- 197
+format.name$ -- 71
+if$ -- 605
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 8
+newline$ -- 42
+num.names$ -- 24
+pop$ -- 61
+preamble$ -- 1
+purify$ -- 61
+quote$ -- 0
+skip$ -- 92
+stack$ -- 0
+substring$ -- 121
+swap$ -- 15
+text.length$ -- 3
+text.prefix$ -- 2
+top$ -- 0
+type$ -- 64
+warning$ -- 4
+while$ -- 27
+width$ -- 11
+write$ -- 97
+(There were 4 warnings)

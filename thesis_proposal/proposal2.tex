@@ -1,0 +1,194 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.2in]{geometry}
+%\usepackage{supertabular}
+%\usepackage{setspace}
+%\doublespacing
+\usepackage{graphicx}
+%\usepackage{hyperref}
+
+\newcommand{\company}[1]{\verb|#1|}
+\newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\program}[1]{\texttt{#1}}
+\newcommand{\software}[1]{\verb|#1|}
+\newcommand{\project}[1]{\texttt{#1}}
+\newcommand{\boldsymbol}[1]{\mathbf{#1}}
+\newcommand{\comment}[1]{ [ \textit{#1} ] }
+
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\WW}{\mathcal{W}}
+\newcommand{\TT}{\mathcal{T}}
+
+\author{Ivan Savov}
+\title{ {\LARGE Latent Dirichlet Ideas } }
+
+\begin{document}
+\maketitle
+
+\abstract{
+    During the last semester I worked on a small research project on the LDA topic
+    model on a data set of scientific papers.
+    I feel my project was just scratching the surface and that there remain plenty
+    of interesting research topics to be explored.
+    Most importantly, I feel the LDA model is very powerful and computationally efficient
+    so there has to \emph{practical} applications which can be developed.
+}
+
+\ \\
+\noindent {\bf keywords: } LDA, topic model, Gibbs sampling, applications, hierarchical
+    % web service, startup
+
+
+\section{Introduction}
+
+    
+    document collections \cite{Blei2003,Blei2009}.
+
+
+
+\section{The current setup}
+    
+    preporcessing in python
+
+    LDA C programs by Newman  \cite{NewmanCode}.
+	
+\section{The intended setup}
+
+    If I am going to be working on this project I need to cleanup the code.
+
+    I want to refactor the whole 
+    code base into a self contained python library \texttt{liblda} with a simple API.
+    
+    The user writes edits a config file which explains where the document collection lives
+    and then the uses two-three simple commands to run an LDA experiment.
+
+    The results will be available (they already are kind of) as numpy arrays, so that
+    more complex algorithms can be build on top of the basic LDA operations.
+
+    I want to follow the ideas of "loose coupling" and allow to swap out components like
+    the underlying inference algorithm.
+
+
+	
+\section{Ideas}
+
+    This project has been a very good opportunity to learn about LDA and machine learning in
+    general.
+    I learned both theoretical facts about graphical models as well as practical consideraitons
+    about programming inference algorithms, memory management and data pre-processing.
+
+    While I was able to extract reasonably good topics from the \texttt{quant-ph} archive,
+    I think there is still a lot of interesting experiments to perform with this data set.
+    In particular I would like to use the extracted topics in order to devlop an automated
+    recommendation system or a ``topic filter'' which would help me keep track of which papers
+    are posted on the arXiv every day that are relevant to my topics of research.
+
+    Some other ideas that I would like to pursue are the following.
+
+	\subsection{Regular expressions counts}
+        
+        In text analysis we invariably use word counts as the main ``features'' of documents.
+        Since we have the full power and flexibility of python during the pre-processing stage,
+        we could use instead regular expressions as features.
+
+        For example we could quantify how many matches to the reg ex ``\texttt{H(.*)}'' there are
+        in each document. Certainly, for papers that deal with information theory this will be 
+        a highly informative feature.
+
+		%We can have higher level features counts from regular expression matches.
+		%These features can themselves be refined over generations or by cross validation.
+		%Come to think of it you can do all kinds of things with this.
+        Another possible use of regular expressions is to have a digram model with synonyms
+        taken into account. For example we could count how many matches there are to this
+        reglar expression ``\texttt{quantum (mechanics|physics)}'' instead of trying to keep
+        track of the two options separately.
+		
+		%Algorithm: Self-refining regular expression features
+		%\begin{enumerate}
+		%	\item	Start with word counts for a fixed list of words of size $|W|$ and do regular LDA.
+		%	\item	For each of the latent topics build all "two word" combinations.
+		%	\item	Rerun LDA on the expanded feature space of size $|W|^2 + |W|$.
+		%	\item	Find the important second order occurrences and discard all other features.
+		%	\item	Try to compress multiple variations using regular expression language. \\
+		%			Example: "a b", "a c", "a d"  can be converted into regex "a (b|c|d)"
+		%	\item	Go to step 3 but now number of features is $|W|+$ n\_of\_good\_reg\_exes
+		%\end{enumerate}
+
+		%I am not sure if this will generate all possible word occurrences but I think reg-exes are
+		%pretty rich as feature set and their computation is all parallelizable so it doesn't matter if 
+		%it is very expensive.
+		
+		%Can we let some genetic algorithm work on this instead?
+
+
+    \subsection{Two data set correlations}
+
+        I have not seen in the litterature any discussion about using LDA to automatically
+        create links between two data collections.
+        For example if we trained a topic model on wikipedia articles AND the arXiv,
+        we would be able to automatically generate meaningful links between the two.
+        As you browse the arXiv you could get suggested articles from wikipedia that cover similar topics.
+
+	
+	%\subsection{This paper covers}
+	%
+	%	User interface idea: papers laid out on a table in such a way that the papers that
+	%	cite each other overlap. All papers in the same "epoch" are visible at the same time
+	%	and placement and paper size indicates relative importance.
+	%	
+	%	(One way to think about this is where are the words of this each topic passed on from one generation
+	%	to the next)
+		
+	\subsection{Parallel LDA}
+
+        MOST INTERESTING !
+
+        One aspect that I did not get a chance to look into deeper is the use of parallel algorithms
+        for inference of the LDA model.
+        One approach is to modify the Gibbs sampling or variational methods to permit loosely
+        coupled parallel operation \cite{newman2006scalable,newman2007distributed}. 
+
+        Another approach is to use GPU based computation which is highly parallel and vectorized.
+        CUDA (Compute Unified Device Architecture) is a simple API which allows for GPU programming
+        on NVIDIA grpahics boards. The speedups reported are very impressive
+        \cite{masada2009accelerating, yan-parallel}.
+        This research direciton would also be an excuse for me to buy an expensive graphics card.
+
+			
+    \subsection{Citation graph}
+
+        One simple further step that can be taken to make use of the arXiv topic model 
+        is to extract the citation graph amongst the paper. This can be done with another
+        regular expression of the form \verb|quant-ph\d{7}| or from some third party
+        source like Citeseer.
+        
+        Having the citaiton graph would allows us to do a ``page rank'' type of calculation
+        and extract a sense of importance for the papers in each topic.
+
+
+    \subsection{Metadata}
+        We should have the titles for each of these articles I think
+        we need a little urllib2 script to get each of
+        \verb|http://arxiv.org/list/quant-ph/0003?show=1000|
+        where 0003 corresponds to my folder 0003 
+
+
+    %Calculate perplexity and KL distance for different runs with same parameters
+    %\cite{newman2006scalable}.
+    
+    \vspace{0.3in}
+
+    I feel this is more of a beginning than an end to this project.
+    I have gotten acquainted with the software and the data set and hopefully I can produce
+    some worthwhile results in the coming months.
+    All the source code and results associated with this project are available here \cite{IvanCode}.
+
+
+
+
+
+\bibliographystyle{alpha}
+\bibliography{arXivLDA}
+
+
+\end{document}
