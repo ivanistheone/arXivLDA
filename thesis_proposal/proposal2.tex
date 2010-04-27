@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[letterpaper,12pt]{article}
 
 \usepackage[margin=1.2in]{geometry}
 %\usepackage{supertabular}
@@ -26,10 +26,12 @@
 \maketitle
 
 \abstract{
+
     During the last semester I worked on a small research project on the LDA topic
-    model on a data set of scientific papers.
-    I feel my project was just scratching the surface and that there remain plenty
-    of interesting research topics to be explored.
+    model on a data set of scientific documents.
+    %
+    I feel my project has just scratching the surface of what is a fascinating subject which
+    has plenty of interesting research topics to be explored.
     Most importantly, I feel the LDA model is very powerful and computationally efficient
     so there has to \emph{practical} applications which can be developed.
 }
@@ -41,49 +43,137 @@
 
 \section{Introduction}
 
-    
-    document collections \cite{Blei2003,Blei2009}.
-
-
-
-\section{The current setup}
-    
-    preporcessing in python
-
-    LDA C programs by Newman  \cite{NewmanCode}.
+	Topic models have received a lot of attention recently in the machine learning 
+	community \cite{Blei2003,Blei2009}.
+	This simple graphical model based on the multinomial distribution for word frequencies 
+	and its prior the Dirichlet probability density function has been acclaimed for
+	its ability to magically find groups of words that seem to belong to the same subject matter.
 	
-\section{The intended setup}
+	
+	The original model has been studied by several authors, and different 
+	techniques of inferring the probability distributions have been developed
+	like collapsed variational Bayes, Gibbs sampling and other
+	Computational considerations have also been studied with several results
+	about modifying the inference algorithms to scale [] and to fit 
+	different hardware paradigms [CUDA].
+	
+	The basic topic model of LDA has also been extended to involve hierarchical 
+	topic structures (hLDA), authors and citations,  other? 
+	\bigskip
+	\bigskip
+	
+	On the applications side, we have had JSTOR search and categorizations,
+	subject classification of newsgroups data and Google News. 
+	\bigskip
+	\bigskip
+	
+	Given my fascination with topics models, I feel like I should take a more
+	active approach and actually code something up and run experiments 
+	instead of only reading papers.
+	
+	More specifically, here is a list of tasks that I would like to accomplish
+	during the next year.
+	\begin{enumerate}
+		\item	Understand better the underlying principles 
+				that make LDA work. [arbilon, exp family, ]
+		\item	Explore the "topic landscape" defined between
+				topics by the K-L distance ${KL}(p_{t_1}(w\in Dict),\ p_{t_2}(w \in Dict))$.
+		\item	Explore consistency of learned topics over multiple runs on the same
+				data. (quality of matching between topics of different runs based on K-L distance)
+		\item	Explore the topic landscape defined between topics from runs with different
+				number of topics, i.e. which subset of topics from a $T=100$ run are most 
+				similar to the first topic from a run with $T=20$. 
+		\item	Produce a python library for automating LDA
+				experiments (liblda).
+				(preprocessing, word counts, dictionary generation, 
+				pluggable inference algorithms in C).
+		\item	Write an inference algorithms that makes use of hardware acceleration
+				in video cards.
+		\item	Write a parallel inference algorithm for the LDA model that
+				can be run on clusters.
+	\end{enumerate}
+	
+	To do this 
+	
+	
+\section{Tasks}
 
-    If I am going to be working on this project I need to cleanup the code.
+	\subsection{Theory}
+	
+		paper on exponential family  \\
+		LSA 
+		
+	\subsection{Topic maps}
+	
+		distance between topics of the same run \\
+		visualizaiton ?
+	
+	\subsection{Consistency}
+		
+		Evaluation of topic models have been difficult. 
+		\bigskip
+		\bigskip
+		
+		How similar are the topics extracted from a document collection
+		between different runs of the inference algorithms.
+		Are the topics extracted similar for Gibbs sampling and CVB based
+		inference ?
+		Play with $\alpha, \beta$ parameters on priors.
+		
+		To study this we want to repeat the approach in [ $??$ ] which 
+		performs the Hungarian-algorithm for matching on the topics 
+		extracted from different runs.
+		%
+		They claim to have about 80\% of topics match between different runs.
+		
+	\subsection{Hierarchical topics}
+	
+		topic subtopic relationship ...
 
-    I want to refactor the whole 
-    code base into a self contained python library \texttt{liblda} with a simple API.
-    
-    The user writes edits a config file which explains where the document collection lives
-    and then the uses two-three simple commands to run an LDA experiment.
+	\subsection{\texttt{liblda}}
+	
+		In order to run the experiments for ..
+		pre-processing in python 
+		LDA C programs by Newman  \cite{NewmanCode}.
+		
+		If I am going to be working on this project I need to cleanup the code.
+		I want to refactor the whole
+		code base into a self contained python library \texttt{liblda} with a simple API.
+		
+		%import from other write up
+	    
+	    The user writes edits a config file which explains where the document collection lives
+	    and then the uses two-three simple commands to run an LDA experiment.
 
-    The results will be available (they already are kind of) as numpy arrays, so that
-    more complex algorithms can be build on top of the basic LDA operations.
+	    The results will be available (they already are kind of) as numpy arrays, so that
+	    more complex algorithms can be build on top of the basic LDA operations.
 
-    I want to follow the ideas of "loose coupling" and allow to swap out components like
-    the underlying inference algorithm.
+	    I want to follow the ideas of "loose coupling" and allow to swap out components like
+	    the underlying inference algorithm.
 
 
 	
-\section{Ideas}
+		
+	\subsection{Parallel LDA}
 
-    This project has been a very good opportunity to learn about LDA and machine learning in
-    general.
-    I learned both theoretical facts about graphical models as well as practical consideraitons
-    about programming inference algorithms, memory management and data pre-processing.
+	        One aspect that I did not get a chance to look into deeper is the use of parallel algorithms
+	        for inference of the LDA model.
+	        One approach is to modify the Gibbs sampling or variational methods to permit loosely
+	        coupled parallel operation \cite{newman2006scalable,newman2007distributed}. 
 
-    While I was able to extract reasonably good topics from the \texttt{quant-ph} archive,
-    I think there is still a lot of interesting experiments to perform with this data set.
-    In particular I would like to use the extracted topics in order to devlop an automated
-    recommendation system or a ``topic filter'' which would help me keep track of which papers
-    are posted on the arXiv every day that are relevant to my topics of research.
+	\subsection{LDA on the GPU}
+		
+	        Another approach is to use GPU based computation which is highly parallel and vectorized.
+	        CUDA (Compute Unified Device Architecture) is a simple API which allows for GPU programming
+	        on NVIDIA grpahics boards. The speedups reported are very impressive
+	        \cite{masada2009accelerating, yan-parallel}.
+	        %This research direction would also be an excuse for me to buy an expensive graphics card.
 
-    Some other ideas that I would like to pursue are the following.
+
+
+
+\section{Other less clear ideas}
+
 
 	\subsection{Regular expressions counts}
         
@@ -123,36 +213,12 @@
 
     \subsection{Two data set correlations}
 
-        I have not seen in the litterature any discussion about using LDA to automatically
+        I have not seen in the literature any discussion about using LDA to automatically
         create links between two data collections.
         For example if we trained a topic model on wikipedia articles AND the arXiv,
         we would be able to automatically generate meaningful links between the two.
         As you browse the arXiv you could get suggested articles from wikipedia that cover similar topics.
 
-	
-	%\subsection{This paper covers}
-	%
-	%	User interface idea: papers laid out on a table in such a way that the papers that
-	%	cite each other overlap. All papers in the same "epoch" are visible at the same time
-	%	and placement and paper size indicates relative importance.
-	%	
-	%	(One way to think about this is where are the words of this each topic passed on from one generation
-	%	to the next)
-		
-	\subsection{Parallel LDA}
-
-        MOST INTERESTING !
-
-        One aspect that I did not get a chance to look into deeper is the use of parallel algorithms
-        for inference of the LDA model.
-        One approach is to modify the Gibbs sampling or variational methods to permit loosely
-        coupled parallel operation \cite{newman2006scalable,newman2007distributed}. 
-
-        Another approach is to use GPU based computation which is highly parallel and vectorized.
-        CUDA (Compute Unified Device Architecture) is a simple API which allows for GPU programming
-        on NVIDIA grpahics boards. The speedups reported are very impressive
-        \cite{masada2009accelerating, yan-parallel}.
-        This research direciton would also be an excuse for me to buy an expensive graphics card.
 
 			
     \subsection{Citation graph}
@@ -184,8 +250,38 @@
     All the source code and results associated with this project are available here \cite{IvanCode}.
 
 
+\section{Applications}
+
+	In order to show off the power of LDA there should be
+	
+	\subsection{arXiv browser}
+	
+	    In particular I would like to use the extracted topics in order to devlop an automated
+	    recommendation system or a ``topic filter'' which would help me keep track of which papers
+	    are posted on the arXiv every day that are relevant to my topics of research.
+
+	\subsection{topic extraction as a service}
+	
+		Use our word counter and vocabulary picker, then just send us your count vectors.
+		preserves privacy
 
 
+	\subsection{autotagging}
+	
+		run topic model, \\
+		present to user for him to tag topics, \\
+		apply these tags systemwide to all documents
+		
+	
+	%\subsection{This paper covers}
+	%
+	%	User interface idea: papers laid out on a table in such a way that the papers that
+	%	cite each other overlap. All papers in the same "epoch" are visible at the same time
+	%	and placement and paper size indicates relative importance.
+	%	
+	%	(One way to think about this is where are the words of this each topic passed on from one generation
+	%	to the next)
+		
 
 \bibliographystyle{alpha}
 \bibliography{arXivLDA}

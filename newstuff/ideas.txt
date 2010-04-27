@@ -107,6 +107,40 @@ What is the importance of \alpha \beta ?
 
 
 
+Possible application
+====================
+
+inspired by ~/Desktop/.cleanup.sh 
+goes through the entire list of documents not he desktop and
+moves them into neat columns -- one column per topic
+(live word counts? it is an inherently slow background process..)
+
+new saved items on the desktop usually show up at the right (in Mac OS X)
+so if the auto-placed columns for each topic are at the far left
+it will  be very good…. the user will be happy to see his jumble of new
+saved files file up nicely in rank based on the subjects he has been researching...
+
+test -- how well can we classify…
+if works ASK FOR HELP for the implementations
+see: my question on stackoverflow 
+
+
+
+
+if you re-arrange the icons a bit it understands what you mean 
+and updates its internal notion of clusters
+
+this way your desktop always stays organized
+killer app 
+
+which desktop env. can make this happen ?
+do i have to learn Objective-C ?
+
+
+
+
+
+
 
 TODO:
 =====
