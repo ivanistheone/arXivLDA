@@ -1,4 +1,29 @@
-\begin{thebibliography}{NASW07}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{BGCG{\etalchar{+}}09}
+
+\bibitem[AWST]{Teh2009}
+A.~Asuncion, M.~Welling, P.~Smyth, and Y.W. Teh.
+\newblock {On Smoothing and Inference for Topic Models}.
+
+\bibitem[BGBZ07]{boyd2007topic}
+J.~Boyd-Graber, D.~Blei, and X.~Zhu.
+\newblock {A topic model for word sense disambiguation}.
+\newblock In {\em Proceedings of the 2007 Joint Conference on Empirical Methods
+  in Natural Language Processing and Computational Natural Language Learning
+  (EMNLP-CoNLL)}, pages 1024--1033, 2007.
+
+\bibitem[BGCG{\etalchar{+}}09]{boyd2009reading}
+J.~Boyd-Graber, J.~Chang, S.~Gerrish, C.~Wang, and D.~Blei.
+\newblock {Reading Tea Leaves: How Humans Interpret Topic Models}.
+\newblock {\em Advances in Neural Information Processing Systems (NIPS)}, 31,
+  2009.
+
+\bibitem[BGJT04]{blei2004hierarchical}
+D.~Blei, T.L. Griffiths, M.I. Jordan, and J.B. Tenenbaum.
+\newblock {Hierarchical topic models and the nested Chinese restaurant
+  process}.
+\newblock {\em Advances in neural information processing systems}, 16:106,
+  2004.
 
 \bibitem[BL09]{Blei2009}
 D.~Blei and J.~Lafferty.
@@ -11,6 +36,11 @@ D.M. Blei, A.Y. Ng, and M.I. Jordan.
 \newblock {Latent dirichlet allocation}.
 \newblock {\em The Journal of Machine Learning Research}, 3:993--1022, 2003.
 
+\bibitem[Hei05]{heinrich2005parameter}
+G.~Heinrich.
+\newblock {Parameter estimation for text analysis}.
+\newblock {\em Web: http://www.arbylon.net/publications/text-est.pdf}, 2005.
+
 \bibitem[MHSO09]{masada2009accelerating}
 T.~Masada, T.~Hamada, Y.~Shibata, and K.~Oguri.
 \newblock {Accelerating Collapsed Variational Bayesian Inference for Latent
@@ -18,6 +48,12 @@ T.~Masada, T.~Hamada, Y.~Shibata, and K.~Oguri.
 \newblock In {\em Proceedings of the 22nd International Conference on
   Industrial, Engineering and Other Applications of Applied Intelligent
   Systems: Next-Generation Applied Intelligence}, page 500. Springer, 2009.
+
+\bibitem[MM07]{mimno2007expertise}
+D.~Mimno and A.~McCallum.
+\newblock {Expertise modeling for matching papers with reviewers}.
+\newblock In {\em Proceedings of the 13th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, page 509. ACM, 2007.
 
 \bibitem[NASW07]{newman2007distributed}
 D.~Newman, A.~Asuncion, P.~Smyth, and M.~Welling.
@@ -36,10 +72,45 @@ D.~Newman, P.~Smyth, and M.~Steyvers.
 \newblock {\em Journal of Intelligence Community Research and Development},
   2006.
 
+\bibitem[PNI{\etalchar{+}}08]{porteous2008fast}
+I.~Porteous, D.~Newman, A.~Ihler, A.~Asuncion, P.~Smyth, and M.~Welling.
+\newblock {Fast collapsed gibbs sampling for latent dirichlet allocation}.
+\newblock In {\em Proceeding of the 14th ACM SIGKDD international conference on
+  Knowledge discovery and data mining}, pages 569--577. ACM, 2008.
+
+\bibitem[RZGSS04]{rosen2004author}
+M.~Rosen-Zvi, T.~Griffiths, M.~Steyvers, and P.~Smyth.
+\newblock {The author-topic model for authors and documents}.
+\newblock In {\em Proceedings of the 20th conference on Uncertainty in
+  artificial intelligence}, page 494. AUAI Press, 2004.
+
 \bibitem[Sav]{IvanCode}
 Ivan Savov.
 \newblock Lda for scientific topics extraction.
 \newblock {\em Web: http://github.com/ivanistheone/arXivLDA/}.
+
+\bibitem[TNW07]{teh2007collapsed}
+Y.W. Teh, D.~Newman, and M.~Welling.
+\newblock {A collapsed variational bayesian inference algorithm for latent
+  dirichlet allocation}.
+\newblock {\em Advances in neural information processing systems}, 19:1353,
+  2007.
+
+\bibitem[WJ08]{wainwright2008graphical}
+M.J. Wainwright and M.I. Jordan.
+\newblock {Graphical models, exponential families, and variational inference}.
+\newblock {\em Foundations and Trends{\textregistered} in Machine Learning},
+  1(1-2):1--305, 2008.
+
+\bibitem[WM09]{wallach-rethinking}
+H.M. Wallach and D.M.A. McCallum.
+\newblock {Rethinking LDA: Why Priors Matter}.
+\newblock 2009.
+
+\bibitem[WWHB09]{williamson2009focused}
+S.~Williamson, C.~Wang, K.~Heller, and D.~Blei.
+\newblock {Focused Topic Models}.
+\newblock 2009.
 
 \bibitem[YBQ]{yan-parallel}
 F.~Yan, PR~Beijing, and Y.A. Qi.

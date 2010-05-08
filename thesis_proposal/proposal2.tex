@@ -28,12 +28,12 @@
 \abstract{
 
     During the last semester I worked on a small research project on the LDA topic
-    model on a data set of scientific documents.
+    model on a dataset of scientific documents.
     %
     I feel my project has just scratching the surface of what is a fascinating subject which
     has plenty of interesting research topics to be explored.
-    Most importantly, I feel the LDA model is very powerful and computationally efficient
-    so there has to \emph{practical} applications which can be developed.
+    I also want to develop \emph{practical} applications and demos that show what
+    LDA can do.
 }
 
 \ \\
@@ -52,27 +52,31 @@
 	
 	The original model has been studied by several authors, and different 
 	techniques of inferring the probability distributions have been developed
-	like collapsed variational Bayes, Gibbs sampling and other
+	like collapsed variational Bayes \cite{teh2007collapsed}, Gibbs sampling \cite{porteous2008fast} and others \cite{Teh2009}.
 	Computational considerations have also been studied with several results
-	about modifying the inference algorithms to scale [] and to fit 
-	different hardware paradigms [CUDA].
+	about modifying the inference algorithms to scale \cite{newman2006scalable,newman2007distributed} and to fit 
+	different hardware paradigms \cite{masada2009accelerating, yan-parallel}.
 	
 	The basic topic model of LDA has also been extended to involve hierarchical 
-	topic structures (hLDA), authors and citations,  other? 
-	\bigskip
-	\bigskip
+	topic structures (hLDA \cite{blei2004hierarchical}), authors and citations \cite{rosen2004author},  
+	and many other variations \cite{williamson2009focused,mimno2007expertise,boyd2007topic}.
+	These LDA-inspired models are often more computationally intensive to learn, 
+	but often provide a natural match to a specific task.
 	
-	On the applications side, we have had JSTOR search and categorizations,
+	On the applications side, we have had JSTOR search and categorizations \cite{Blei2009},
 	subject classification of newsgroups data and Google News. 
-	\bigskip
-	\bigskip
+	There hasn't been much research conducted on large datasets to my knowledge. 
+	No one has learned a topic model for the whole of wikipedia for example despite the
+	fact that 5GB of text data (the current approximate size of wikipedia) can probably
+	be crunched using a small number of machines.
 	
 	Given my fascination with topics models, I feel like I should take a more
 	active approach and actually code something up and run experiments 
-	instead of only reading papers.
-	
+	instead of passively reading papers in order to keep up with what others have done.
+
 	More specifically, here is a list of tasks that I would like to accomplish
 	during the next year.
+	
 	\begin{enumerate}
 		\item	Understand better the underlying principles 
 				that make LDA work. [arbilon, exp family, ]
@@ -93,20 +97,30 @@
 				can be run on clusters.
 	\end{enumerate}
 	
-	To do this 
 	
 	
 \section{Tasks}
 
+
 	\subsection{Theory}
 	
-		paper on exponential family  \\
-		LSA 
+		In order to place LDA in its historical context I think I should first learn about LSA, its 
+		precursor.
+		Then, I want to re-read the latest version of the LDA review paper by Gregor Heinrich \cite{heinrich2005parameter},
+		which is an amazing resume and discussion of LDA from first principles and with lots of details.
+		Also I want to learn about the exponential family in general and more background material
+		about the variational inference principles  \cite{wainwright2008graphical}.
+		
+		\vspace{3in}		
+		
+		
 		
 	\subsection{Topic maps}
 	
 		distance between topics of the same run \\
-		visualizaiton ?
+		visualization ?
+		
+		\vspace{3in}
 	
 	\subsection{Consistency}
 		
@@ -118,7 +132,7 @@
 		between different runs of the inference algorithms.
 		Are the topics extracted similar for Gibbs sampling and CVB based
 		inference ?
-		Play with $\alpha, \beta$ parameters on priors.
+		Play with $\alpha, \beta$ parameters on priors \cite{heinrich2005parameter,wallach-rethinking}.
 		
 		To study this we want to repeat the approach in [ $??$ ] which 
 		performs the Hungarian-algorithm for matching on the topics 
@@ -126,11 +140,17 @@
 		%
 		They claim to have about 80\% of topics match between different runs.
 		
+				\vspace{3in}
+		
 	\subsection{Hierarchical topics}
 	
 		topic subtopic relationship ...
+		
+				\vspace{3in}
+						\vspace{3in}
+						
 
-	\subsection{\texttt{liblda}}
+	\subsection{\texttt{liblda.py}}
 	
 		In order to run the experiments for ..
 		pre-processing in python 
@@ -139,6 +159,8 @@
 		If I am going to be working on this project I need to cleanup the code.
 		I want to refactor the whole
 		code base into a self contained python library \texttt{liblda} with a simple API.
+		
+		\cite{IvanCode}.
 		
 		%import from other write up
 	    
@@ -153,6 +175,12 @@
 
 
 	
+				\vspace{3in}
+				
+						\vspace{3in}
+						
+						
+		
 		
 	\subsection{Parallel LDA}
 
@@ -160,6 +188,12 @@
 	        for inference of the LDA model.
 	        One approach is to modify the Gibbs sampling or variational methods to permit loosely
 	        coupled parallel operation \cite{newman2006scalable,newman2007distributed}. 
+	        
+	        %Other results about come 
+	        %\cite{chang2007psvm}
+	        		\vspace{3in}
+					\vspace{3in}
+					
 
 	\subsection{LDA on the GPU}
 		
@@ -170,7 +204,9 @@
 	        %This research direction would also be an excuse for me to buy an expensive graphics card.
 
 
-
+				\vspace{3in}
+						\vspace{3in}
+						
 
 \section{Other less clear ideas}
 
@@ -254,26 +290,36 @@
 
 	In order to show off the power of LDA there should be
 	
-	\subsection{arXiv browser}
+	\subsection{ArXiv browser}
 	
-	    In particular I would like to use the extracted topics in order to devlop an automated
+	    In particular I would like to use the extracted topics in order to develop an automated
 	    recommendation system or a ``topic filter'' which would help me keep track of which papers
 	    are posted on the arXiv every day that are relevant to my topics of research.
 
-	\subsection{topic extraction as a service}
+	   Other approaches for visualization and evaluation of topic models are suggested in 
+	    \cite{boyd2009reading}. % reading tea leaves....
+
+		\vspace{3in}	    
+	   
+	\subsection{Topic extraction as a service}
 	
 		Use our word counter and vocabulary picker, then just send us your count vectors.
 		preserves privacy
 
+		\vspace{3in}
 
-	\subsection{autotagging}
+	\subsection{Autotagging}
 	
 		run topic model, \\
 		present to user for him to tag topics, \\
 		apply these tags systemwide to all documents
-		
+
+		\vspace{3in}
+				
+				
 	
-	%\subsection{This paper covers}
+
+	%\subsection{Paper cover}
 	%
 	%	User interface idea: papers laid out on a table in such a way that the papers that
 	%	cite each other overlap. All papers in the same "epoch" are visible at the same time
@@ -282,6 +328,10 @@
 	%	(One way to think about this is where are the words of this each topic passed on from one generation
 	%	to the next)
 		
+
+\pagebreak
+
+	
 
 \bibliographystyle{alpha}
 \bibliography{arXivLDA}

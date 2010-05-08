@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2008.12.28)  27 APR 2010 14:13
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2008.12.28)  8 MAY 2010 00:15
 entering extended mode
 \write18 enabled.
  %&-line parsing enabled.
@@ -150,53 +150,63 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 55.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 55.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 55.
  [1
 
 {/usr/local/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 80.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 80.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 80.
-
-[2]
+[2] [3]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 133.
- [3] [4] (./proposal2.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 29--32
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 153.
+ [4] [5] [6] [7] [8] [9] (./proposal2.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 65--68
 []\OT1/cmr/m/n/10.95 David New-man.  Topic mod-el-ing scripts and code.
  []
 
-
-Underfull \hbox (badness 4205) in paragraph at lines 40--43
+[10]
+Underfull \hbox (badness 3179) in paragraph at lines 88--91
 []\OT1/cmr/m/n/10.95 Ivan Savov.  Lda for sci-en-tific top-ics ex-trac-tion.  \
 OT1/cmr/m/it/10.95 Web:
  []
 
-) [5] (./proposal2.aux) ) 
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 102.
+
+(/usr/local/texlive/2008/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 102.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 102.
+) [11]
+(./proposal2.aux) ) 
 Here is how much of TeX's memory you used:
- 1319 strings out of 493876
- 17775 string characters out of 1150567
- 71237 words of memory out of 3000000
- 4623 multiletter control sequences out of 10000+50000
+ 1351 strings out of 493876
+ 18352 string characters out of 1150567
+ 72339 words of memory out of 3000000
+ 4652 multiletter control sequences out of 10000+50000
  9793 words of font info for 35 fonts, out of 3000000 for 5000
  714 hyphenation exceptions out of 8191
- 25i,6n,32p,186b,201s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2008/texmf-dist/fonts/type1/bluesk
-y/cm/cmbx10.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmbx
-12.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi10.pfb></
-usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi8.pfb></usr/local/
-texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmr10.pfb></usr/local/texlive/20
-08/texmf-dist/fonts/type1/bluesky/cm/cmr12.pfb></usr/local/texlive/2008/texmf-d
-ist/fonts/type1/bluesky/cm/cmr17.pfb></usr/local/texlive/2008/texmf-dist/fonts/
-type1/bluesky/cm/cmr6.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/blues
-ky/cm/cmsy10.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmt
-i10.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb><
-/usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmtt12.pfb>
-Output written on proposal2.pdf (5 pages, 90379 bytes).
+ 25i,6n,32p,194b,204s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/c
+mbx10.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmbx12.pfb
+></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi10.pfb></usr/lo
+cal/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmmi8.pfb></usr/local/texliv
+e/2008/texmf-dist/fonts/type1/bluesky/cm/cmr10.pfb></usr/local/texlive/2008/tex
+mf-dist/fonts/type1/bluesky/cm/cmr12.pfb></usr/local/texlive/2008/texmf-dist/fo
+nts/type1/bluesky/cm/cmr17.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/
+bluesky/cm/cmr6.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/
+cmr8.pfb></usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmsy10.pfb>
+</usr/local/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmti10.pfb></usr/loc
+al/texlive/2008/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb></usr/local/texliv
+e/2008/texmf-dist/fonts/type1/bluesky/cm/cmtt12.pfb>
+Output written on proposal2.pdf (11 pages, 103172 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
