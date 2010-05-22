@@ -1,4 +1,4 @@
-\documentclass[letterpaper,12pt]{article}
+\documentclass[letterpaper,11pt]{article}
 
 \usepackage[margin=1.2in]{geometry}
 %\usepackage{supertabular}
@@ -27,12 +27,12 @@
 
 \abstract{
 
-    During the last semester I worked on a small research project on the LDA topic
-    model on a dataset of scientific documents.
+    I first became familiar with Latent Dirichlet Allocation (LDA) through a term project 
+    in my Machine Learning class.
     %
-    I feel my project has just scratching the surface of what is a fascinating subject which
-    has plenty of interesting research topics to be explored.
-    I also want to develop \emph{practical} applications and demos that show what
+    I feel my project was  just a scratch on the surface of what is a fascinating subject with
+    plenty of interesting research opportunities to be explored.
+    In particular, I want to develop \emph{practical} applications and demos that show what
     LDA can do.
 }
 
@@ -51,7 +51,7 @@
 	
 	
 	The original model has been studied by several authors, and different 
-	techniques of inferring the probability distributions have been developed
+	techniques of learning the model parameters have been developed
 	like collapsed variational Bayes \cite{teh2007collapsed}, Gibbs sampling \cite{porteous2008fast} and others \cite{Teh2009}.
 	Computational considerations have also been studied with several results
 	about modifying the inference algorithms to scale \cite{newman2006scalable,newman2007distributed} and to fit 
@@ -60,27 +60,28 @@
 	The basic topic model of LDA has also been extended to involve hierarchical 
 	topic structures (hLDA \cite{blei2004hierarchical}), authors and citations \cite{rosen2004author},  
 	and many other variations \cite{williamson2009focused,mimno2007expertise,boyd2007topic}.
-	These LDA-inspired models are often more computationally intensive to learn, 
+	These LDA-inspired models are more computationally intensive to learn, 
 	but often provide a natural match to a specific task.
 	
 	On the applications side, we have had JSTOR search and categorizations \cite{Blei2009},
-	subject classification of newsgroups data and Google News. 
+	subject classification of newsgroups data and, rumour has it, the clustering algorithm  behind Google News. 
 	There hasn't been much research conducted on large datasets to my knowledge. 
 	No one has learned a topic model for the whole of wikipedia for example despite the
 	fact that 5GB of text data (the current approximate size of wikipedia) can probably
 	be crunched using a small number of machines.
 	
-	Given my fascination with topics models, I feel like I should take a more
+	Given my fascination with the emerging science of topics models, I feel like I should take a more
 	active approach and actually code something up and run experiments 
-	instead of passively reading papers in order to keep up with what others have done.
-
-	More specifically, here is a list of tasks that I would like to accomplish
+	instead of passively reading papers.
+	% in order to keep up with what others have done.
+	%
+	More specifically, here is a list of tasks that I would like to work on
 	during the next year.
 	
 	\begin{enumerate}
 		\item	Understand better the underlying principles 
-				that make LDA work. [arbilon, exp family, ]
-		\item	Explore the "topic landscape" defined between
+				that make LDA work.
+		\item	Explore the ``topic landscape'' defined between
 				topics by the K-L distance ${KL}(p_{t_1}(w\in Dict),\ p_{t_2}(w \in Dict))$.
 		\item	Explore consistency of learned topics over multiple runs on the same
 				data. (quality of matching between topics of different runs based on K-L distance)
@@ -88,13 +89,13 @@
 				number of topics, i.e. which subset of topics from a $T=100$ run are most 
 				similar to the first topic from a run with $T=20$. 
 		\item	Produce a python library for automating LDA
-				experiments (liblda).
+				experiments.
 				(preprocessing, word counts, dictionary generation, 
-				pluggable inference algorithms in C).
-		\item	Write an inference algorithms that makes use of hardware acceleration
-				in video cards.
+				pluggable learning and inference algorithms in C).
 		\item	Write a parallel inference algorithm for the LDA model that
-				can be run on clusters.
+				can run on clusters.
+		\item	Write an inference algorithms that makes use of hardware 
+				in video cards.
 	\end{enumerate}
 	
 	
@@ -104,109 +105,194 @@
 
 	\subsection{Theory}
 	
-		In order to place LDA in its historical context I think I should first learn about LSA, its 
-		precursor.
+		In order to place LDA in its historical context I think I should first learn about pLSA \cite{hofmann1999probabilistic}, 
+		which some people see as LDA's precursor. 
 		Then, I want to re-read the latest version of the LDA review paper by Gregor Heinrich \cite{heinrich2005parameter},
 		which is an amazing resume and discussion of LDA from first principles and with lots of details.
 		Also I want to learn about the exponential family in general and more background material
 		about the variational inference principles  \cite{wainwright2008graphical}.
 		
-		\vspace{3in}		
-		
+		While I am also interested in learning about modern extensions of LDA, 
+		I want to make sure I understand the original LDA topic model very well before I start looking into them.
 		
 		
 	\subsection{Topic maps}
 	
-		distance between topics of the same run \\
-		visualization ?
+		Consider a dataset of $D$ documents over a vocabulary of $W$ words.
+		Learning a topic model with $T$ topics for this dataset involves two distributions.
+		The first is the topic-word distribution $p_{w|t}(w|t)$ which represents how likely 
+		word $w$ is in topic $t$.
+		The second distribution is the document-topic distribution $p_{t|d}(t|d)$, 
+		which indicates how much of each topic $t$ is present in a document $d$.
 		
-		\vspace{3in}
-	
+		Several authors from the topic model community are \emph{selling} the idea
+		of using the LDA topic membership as an informative low dimensional
+		space in which to compare similarity between documents
+		$$
+			sym(d_1,d_2) = \sum_t  p_{t|d}(t|d_1)p_{t|d}(t|d_2).
+		$$
+		%
+		Indeed, it is likely that the topic similarity of two documents is much more informative
+		than old-fashioned word frequency cosine distance or tf-idf variants.
+		
+		Of independent interest, is the notion of \emph{topic similarity}, by which 
+		we try to measure how similar the different topics are amongst themselves.
+		We could use the cosine distance again
+		$$
+			sym(t_1,t_2) = \sum_w  p_{w|t}(w|t_1)p_{w|t}(w|t_2)
+		$$
+		or a notion more adapted to probability distributions like the Kullback-Leibler divergence
+		$$
+			dist(t_1,t_2) = {KL}(p_{w|t}(w|t_1),\  p_{w|t}(w|t_2)).
+		$$
+
+		A different, and perhaps more interesting approach to uncovering the
+		similarity between topics is to also take into account the document-topic 
+		distribution $p_{t|d}(t|d)$.
+		Two topics could be completely orthogonal in terms of their word frequencies,
+		but if they always co-occur in documents then it is likely they are related.
+
+		Understanding better the relations between the learned topics could
+		help us make better visualization tools for topics models.
+
+		
 	\subsection{Consistency}
 		
-		Evaluation of topic models have been difficult. 
-		\bigskip
-		\bigskip
+		Evaluation of the quality of the topic models produced by LDA and related algorithms 
+		has been traditionally difficult. 
+		Topic model results are usually illustrated by the top words in each topic according to $p_{w|t}(w|t)$.
+		The reader is supposed to be qualitatively convinced that the algorithm has indeed
+		learned something about the semantic structure of the document collection.
 		
-		How similar are the topics extracted from a document collection
-		between different runs of the inference algorithms.
+		Since the model learning algorithms are not deterministic, we obtain different results 
+		for different training runs on the same data.
+		How similar are the topics extracted from different runs of the inference algorithms?
 		Are the topics extracted similar for Gibbs sampling and CVB based
-		inference ?
-		Play with $\alpha, \beta$ parameters on priors \cite{heinrich2005parameter,wallach-rethinking}.
+		learning ?
+		What role do the parameters of prior distributions ($\alpha, \beta$) 
+		play in the consistency/stability of the learned models \cite{heinrich2005parameter,wallach-rethinking}?
 		
-		To study this we want to repeat the approach in [ $??$ ] which 
+		To study this quantitatively I want to repeat the approach in \cite{newman2007distributed}, which 
 		performs the Hungarian-algorithm for matching on the topics 
-		extracted from different runs.
-		%
-		They claim to have about 80\% of topics match between different runs.
+		extracted from different runs based on the Kullback-Leibler distance.
+		Say topics $\{t_1,\ldots,t_T \}$ are extracted from RUN1 of an LDA algorithm and
+		topics $\{\tau_1,\ldots,\tau_T \}$ from a second run RUN2.
+		The Hungarian algorithm will find a 1-to-1 mapping $\pi$ between $\{t_1,\ldots,t_T \}$ and  $\{\tau_1,\ldots,\tau_T \}$,
+		such that the sum of the KL distances is minimized
+		$$
+			\sum_i  {KL}(p_{w|t}(w|t_i),\  p_{w|\tau}(w| \pi(t_i))).
+		$$
 		
-				\vspace{3in}
+		
+		
+		They \cite{newman2007distributed} claim to have about 80\% of topics match between different runs,
+		i.e. 80\% of topics   $\{t_1,\ldots,t_T \}$ have a unique match corresponding match in $\{\tau_1,\ldots,\tau_T \}$ 
+		with very little KL distance.
+		I would like to verify that claim on my datasets.
+		Also I want to qualitatively examine the remaining 20\% (those without good matches) to possibly find the reason
+		why they cannot be matched.
+		
 		
 	\subsection{Hierarchical topics}
 	
-		topic subtopic relationship ...
+		Continuing with the theme of taking the KL distance between everything that moves, we
+		come to the idea that I have been thinking about the most over the last months.
 		
-				\vspace{3in}
-						\vspace{3in}
-						
+		Suppose we run an LDA algorithm with $T=20$ producing topics  $\{t_1,\ldots,t_{20} \}$.
+		Next we run the same algorithm but this time $T=100$ to learn topics $\{\tau_1,\ldots,\tau_{100} \}$.
+		We will refer to the topics $\{t_i\}$ as \emph{granular} and the topics $\{ \tau_i \}$ as \emph{detailed}.
+		
+		Can we find a topic-subtopic relationship amongst the granular and the detailed topics?
+		Again, the proposed ``distance'' measure is the KL divergence, but we will need to generalize
+		the hungarian algorithm to find a 1-to-many mapping from $\{t_i\}$ to $\{ \tau_i \}$.
+		
+		Will the topic structure learned in this way correspond to any meaningful hierarchy of topics?
+		How will the results compare to the more computationally expensive hLDA \cite{blei2004hierarchical}?
+		Will a three-level hierarchy of topics (chunky, medium and fine) reveal a tree-like structure or will one
+		sub-topic be part of multiple super-topics?
+		
+		I have done some preliminary analysis (manually finding topic-subtopic matchings) and there 
+		seems to be a  logical hierarchy emerging.
+		More analysis is needed and a one-to-many hungarian algorithm must be invented.
+		
 
 	\subsection{\texttt{liblda.py}}
 	
-		In order to run the experiments for ..
-		pre-processing in python 
-		LDA C programs by Newman  \cite{NewmanCode}.
-		
-		If I am going to be working on this project I need to cleanup the code.
+		In order to run the experiments for my COMP-652 project I wrote a python library
+		which deals with experiment setup, text pre-processing and automated calls to 
+		the Gibbs sampling LDA  program by Newman  \cite{NewmanCode}.
+	
+		If I am going to be working on this project I need to cleanup this code.
 		I want to refactor the whole
-		code base into a self contained python library \texttt{liblda} with a simple API.
+		codebase into a self contained python library \texttt{liblda.py} with a simple API
+		that abstracts away the underlying complexity 	\cite{IvanCode}.
 		
-		\cite{IvanCode}.
-		
-		%import from other write up
-	    
-	    The user writes edits a config file which explains where the document collection lives
+		A typical user of the library (say me for example), should be able to run LDA
+		on any document collection that is available.
+		%
+	    The user produces a config file which explains where the document collection lives
+	    (on the filesystem, in a database, in an XML file)
 	    and then the uses two-three simple commands to run an LDA experiment.
+		\begin{enumerate}
+			\item  Perform word counts on documents
+			\item	 Select a vocabulary for the LDA experiment (remove stop words, etc...)
+			\item  Run a learning algorithm and store results (the distributions $p_{w|t}(w|t)$ an $p_{t|d}(t|d)$)
+			\item  (optional) Use $p_{w|t}(w|t)$ from a previous run to infer $p_{t|d}(t|d)$ of unseen documents
+		\end{enumerate}
 
 	    The results will be available (they already are kind of) as numpy arrays, so that
 	    more complex algorithms can be build on top of the basic LDA operations.
+		%
+	    I want to follow the ideas of ``loose coupling'' and allow to swap out components like
+	    the underlying learning algorithm. 
+	    Having swappable components will allow me to compare different LDA libraries
+	    and write my own components if needed.
 
-	    I want to follow the ideas of "loose coupling" and allow to swap out components like
-	    the underlying inference algorithm.
+	    Releasing \texttt{liblda.py}  as an open source project will hopefully increase the 
+	    popularity of topic models in the hacker community and motivate people from outside
+	    the ML community to contribute to science.
+	    
 
-
-	
-				\vspace{3in}
-				
-						\vspace{3in}
-						
-						
-		
 		
 	\subsection{Parallel LDA}
 
-	        One aspect that I did not get a chance to look into deeper is the use of parallel algorithms
-	        for inference of the LDA model.
+	        One aspect that I did not get a chance to look into during my project is the use of parallel algorithms
+	        for learning  and inference of the LDA model.
 	        One approach is to modify the Gibbs sampling or variational methods to permit loosely
 	        coupled parallel operation \cite{newman2006scalable,newman2007distributed}. 
 	        
-	        %Other results about come 
-	        %\cite{chang2007psvm}
-	        		\vspace{3in}
-					\vspace{3in}
-					
+	        What are the computational bottlenecks in the different LDA alogorithms?
+	        Can we parallelize some parts and if so at what cost.
+	        Is there an LDA algorithm that fits the map-reduce paradigm from hadoop?
+	        
+	        If learning a model for LDA turns out to be inherently non-parallelisable task, then
+	        perhaps inference of topic for unseen documents can be parallelised.
+	        This recent paper by \cite{yao2009efficient} certainly suggests so.
+	        
+	        If I want to fit a topic model to the wikipedia data set (which hasn't been done yet I think),
+	        I will need computational resources (RAM in particular) that go beyond those available
+	        on one machine. %, thus parallelization will be required.
+	        I have connections with some friends of mine who administer clusters and they have
+	        agreed to run some of my experiments during the times their resources are unused.
+	        The CLUMEQ scientific computing platform is another target platform which could be 
+	        used for topic model fits of large document sets.
+	        
 
 	\subsection{LDA on the GPU}
 		
-	        Another approach is to use GPU based computation which is highly parallel and vectorized.
-	        CUDA (Compute Unified Device Architecture) is a simple API which allows for GPU programming
-	        on NVIDIA grpahics boards. The speedups reported are very impressive
+	        Another approach is to dealing with the computational complexity of learning LDA models
+	        is the use of GPU based computation which is highly parallel and vectorized.
+	        Nvidia's platform codenamed CUDA (Compute Unified Device Architecture) has 
+	        a simple API which allows for GPU programming
+	        without the need for specialized knowledge.
+	        The speedups reported in literature are very impressive
 	        \cite{masada2009accelerating, yan-parallel}.
+	        
+	        The GPU with its massive shared memory and numerous independent compute cores
+	        is well suited for number crunching tasks such as Gibbs sampling.
+	        
 	        %This research direction would also be an excuse for me to buy an expensive graphics card.
 
-
-				\vspace{3in}
-						\vspace{3in}
-						
 
 \section{Other less clear ideas}
 
@@ -217,8 +303,9 @@
         Since we have the full power and flexibility of python during the pre-processing stage,
         we could use instead regular expressions as features.
 
-        For example we could quantify how many matches to the reg ex ``\texttt{H(.*)}'' there are
-        in each document. Certainly, for papers that deal with information theory this will be 
+        For example we could quantify how many matches to the regular  expression ``\texttt{H(.*)}''\footnote{This expression matches any 
+        character(s) inside the brackets. ex: $H(X), H(), H(XYZ), H(X|Y)$}
+        there are in each document. Certainly, for papers that deal with information theory this will be 
         a highly informative feature.
 
 		%We can have higher level features counts from regular expression matches.
@@ -226,7 +313,7 @@
 		%Come to think of it you can do all kinds of things with this.
         Another possible use of regular expressions is to have a digram model with synonyms
         taken into account. For example we could count how many matches there are to this
-        reglar expression ``\texttt{quantum (mechanics|physics)}'' instead of trying to keep
+        regular expression ``\texttt{quantum (mechanics|physics)}'' instead of trying to keep
         track of the two options separately.
 		
 		%Algorithm: Self-refining regular expression features
@@ -261,62 +348,92 @@
 
         One simple further step that can be taken to make use of the arXiv topic model 
         is to extract the citation graph amongst the paper. This can be done with another
-        regular expression of the form \verb|quant-ph\d{7}| or from some third party
-        source like Citeseer.
+        regular expression of the form \verb|quant-ph\d{7}| or citation data could be 
+        taken from a third party source like Citeseer.
         
-        Having the citaiton graph would allows us to do a ``page rank'' type of calculation
+        Having the citation graph would allows us to do a ``page rank'' type of calculation
         and extract a sense of importance for the papers in each topic.
 
+%    \subsection{Metadata}
+%        We should have the titles for each of these articles I think
+%        we need a little urllib2 script to get each of
+%        \verb|http://arxiv.org/list/quant-ph/0003?show=1000|
+%        where 0003 corresponds to my folder 0003 
 
-    \subsection{Metadata}
-        We should have the titles for each of these articles I think
-        we need a little urllib2 script to get each of
-        \verb|http://arxiv.org/list/quant-ph/0003?show=1000|
-        where 0003 corresponds to my folder 0003 
-
-
-    %Calculate perplexity and KL distance for different runs with same parameters
-    %\cite{newman2006scalable}.
-    
-    \vspace{0.3in}
-
-    I feel this is more of a beginning than an end to this project.
-    I have gotten acquainted with the software and the data set and hopefully I can produce
-    some worthwhile results in the coming months.
-    All the source code and results associated with this project are available here \cite{IvanCode}.
 
 
 \section{Applications}
 
-	In order to show off the power of LDA there should be
+	In order to show off the power of LDA there should be compelling demonstrations of 
+	what this simple graphical model can do.
+	I fail to comprehend why more internet companies have not taken commercial interest in 
+	LDA and topic models in general.
+	There is a tremendous need out there for algorithms that allow us to make sense of large 
+	unlabelled document collections.
+	I think it is time for the topic model community to move away from the standard text
+	datasets of NIPS papers and the newsgroups data and into real world applications.
+	
 	
 	\subsection{ArXiv browser}
 	
-	    In particular I would like to use the extracted topics in order to develop an automated
-	    recommendation system or a ``topic filter'' which would help me keep track of which papers
-	    are posted on the arXiv every day that are relevant to my topics of research.
+	    I would like to use the extracted topics from my arXiv experiments in order to develop an automated
+	    recommendation system or  ``topic filter'' which would help people keep track of papers
+	    posted on the arXiv every day.
+	    New papers should be sorted in order of relevance as judged by the user's past topics of research.
 
 	   Other approaches for visualization and evaluation of topic models are suggested in 
-	    \cite{boyd2009reading}. % reading tea leaves....
-
-		\vspace{3in}	    
+	    \cite{boyd2009reading}. These would be interesting to explore.
+	   Intelligent use of metadata associated with each paper will also make for a better 
+	   paper browsing experience.
+	   
 	   
 	\subsection{Topic extraction as a service}
 	
-		Use our word counter and vocabulary picker, then just send us your count vectors.
-		preserves privacy
+		The underlying computation of extracting topics from a document collection does not
+		in any way depend the actual words that form the LDA vocabulary.
+		Indeed, except for the initial word count phase, words are represented as indices into
+		the vocabulary list.
+		
+		This opens the possibility of offering the topic-extraction service to third parties.
+		A company X could use the topic-extraction services of a company Y without actually
+		sending them any confidential information.
+		To accomplish this, company X will perform the word counts and simply send to
+		Y the word counts for each document.
+		Company Y will have everything needed to compute the topic model yet they will have
+		very little knowledge about what the underlying documents mean since they only have 
+		indices into an unknown list.
+		(Even if Y can use the statistics of work occurrences to guess some of the index-word mappings,
+		 Y would still not learn the document contents since they are represented in the bag-of-words model).
+		 
+		 Particular examples of companies that might want to play the role of company X are 
+		 are internet companies that want to make it easier for their clients to browse through
+		 large unlabelled document collections.
+		 Other companies that might be interested in topic extraction as a service are 
+		 administrators of document repositories of old documents (like JSTOR) 
+		 who want to organize or cluster their content.
+		 
+		 
 
-		\vspace{3in}
+	\subsection{Auto-tagging}
 
-	\subsection{Autotagging}
-	
-		run topic model, \\
-		present to user for him to tag topics, \\
-		apply these tags systemwide to all documents
-
-		\vspace{3in}
-				
-				
+		Perhaps the most compelling application of topic models that I can think of is
+		the notion of an \emph{autotagging} algorithm for document collections. 
+		The workflow would be something like this:
+		\begin{enumerate}
+			\item 	Run topic model on my document collection (or outsource to company Y),
+			\item		Hire an expert to tag each topic,
+			\item		Use the document-topic distribution to apply these expert tags to all documents
+		\end{enumerate}
+		
+		The potential benefits are tremendous. Hiring an expert to tag every document is 
+		a task proportional to $D$ --- the number of documents.
+		This is kind of impossible for large document collections. 
+		Tagging consistency will also be a major problem for large document collections.
+		%
+		With autotagging, the work associated with labelling the document collection is 
+		proportional to a constant $T$ --- the number of topics.
+		
+		
 	
 
 	%\subsection{Paper cover}

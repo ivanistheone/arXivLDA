@@ -10,45 +10,45 @@ Warning--empty journal in wallach-rethinking
 Warning--empty journal in williamson2009focused
 Warning--empty journal in yan-parallel
 Warning--empty year in yan-parallel
-You've used 20 entries,
+You've used 22 entries,
             2543 wiz_defined-function locations,
-            666 strings with 7975 characters,
-and the built_in function-call counts, 8399 in all, are:
-= -- 827
-> -- 486
-< -- 8
-+ -- 175
-- -- 175
-* -- 597
-:= -- 1422
-add.period$ -- 62
-call.type$ -- 20
-change.case$ -- 141
-chr.to.int$ -- 20
-cite$ -- 28
-duplicate$ -- 329
-empty$ -- 537
-format.name$ -- 196
-if$ -- 1688
+            677 strings with 8304 characters,
+and the built_in function-call counts, 9459 in all, are:
+= -- 941
+> -- 519
+< -- 11
++ -- 186
+- -- 186
+* -- 660
+:= -- 1569
+add.period$ -- 69
+call.type$ -- 22
+change.case$ -- 153
+chr.to.int$ -- 22
+cite$ -- 30
+duplicate$ -- 382
+empty$ -- 625
+format.name$ -- 210
+if$ -- 1930
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 20
-newline$ -- 102
-num.names$ -- 60
-pop$ -- 154
+missing$ -- 22
+newline$ -- 112
+num.names$ -- 66
+pop$ -- 171
 preamble$ -- 1
-purify$ -- 161
+purify$ -- 175
 quote$ -- 0
-skip$ -- 274
+skip$ -- 321
 stack$ -- 0
-substring$ -- 329
-swap$ -- 62
-text.length$ -- 8
-text.prefix$ -- 3
+substring$ -- 407
+swap$ -- 84
+text.length$ -- 11
+text.prefix$ -- 4
 top$ -- 0
-type$ -- 160
+type$ -- 176
 warning$ -- 8
-while$ -- 74
-width$ -- 23
-write$ -- 248
+while$ -- 85
+width$ -- 25
+write$ -- 275
 (There were 8 warnings)

@@ -41,6 +41,11 @@ G.~Heinrich.
 \newblock {Parameter estimation for text analysis}.
 \newblock {\em Web: http://www.arbylon.net/publications/text-est.pdf}, 2005.
 
+\bibitem[Hof99]{hofmann1999probabilistic}
+T.~Hofmann.
+\newblock {Probabilistic Latent Semantic Analysis}.
+\newblock In {\em UAI}, pages 289--296, 1999.
+
 \bibitem[MHSO09]{masada2009accelerating}
 T.~Masada, T.~Hamada, Y.~Shibata, and K.~Oguri.
 \newblock {Accelerating Collapsed Variational Bayesian Inference for Latent
@@ -116,5 +121,12 @@ S.~Williamson, C.~Wang, K.~Heller, and D.~Blei.
 F.~Yan, PR~Beijing, and Y.A. Qi.
 \newblock {Parallel Inference for Latent Dirichlet Allocation on Graphics
   Processing Units}.
+
+\bibitem[YMM09]{yao2009efficient}
+L.~Yao, D.~Mimno, and A.~McCallum.
+\newblock {Efficient methods for topic model inference on streaming document
+  collections}.
+\newblock In {\em Proceedings of the 15th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 937--946. ACM, 2009.
 
 \end{thebibliography}
